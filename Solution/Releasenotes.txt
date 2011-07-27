@@ -1,0 +1,11 @@
+Versioning is using odd-even versioning.
+
+vA.B.C.D
+A:      Major changes
+B-Odd:  Unstable dev with ongoing implementation of new features and minor changes.
+B-Even: Stable release with new features and minor changes.
+C:      Bug fixes
+D:      Build number.
+
+v0.1.0
+---

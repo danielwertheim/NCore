@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>NCore</id>    
+    <title>NCore</title>
+	<version>0.0.0.0</version>
+	<authors>Daniel Wertheim - @@danielwertheim - http://daniel.wertheim.se</authors>
+	<owners>Daniel Wertheim - @@danielwertheim - http://daniel.wertheim.se</owners>
+	<summary>Core lib with helpers, utils and extensions.</summary>
+    <description>
+		Contains helpers, utils and extensions to simplify the daily work.
+	</description>
+	<projectUrl>http://github.com/sedanwer/ncore</projectUrl>
+	<licenseUrl>http://github.com/sedanwer/ncore/blob/master/Solution/License-NCore.txt</licenseUrl>
+	<requireLicenseAcceptance>false</requireLicenseAcceptance>
+	<tags>indexing, structures</tags>
+    </metadata>
+</package>
