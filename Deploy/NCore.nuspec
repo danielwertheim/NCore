@@ -13,6 +13,6 @@
 	<projectUrl>http://github.com/sedanwer/ncore</projectUrl>
 	<licenseUrl>http://github.com/sedanwer/ncore/blob/master/Solution/License-NCore.txt</licenseUrl>
 	<requireLicenseAcceptance>false</requireLicenseAcceptance>
-	<tags>indexing, structures</tags>
+	<tags>core,utils,helpers,extensions</tags>
     </metadata>
 </package>
