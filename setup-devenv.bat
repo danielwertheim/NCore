@@ -1,0 +1,1 @@
+rake -f Deploy/rakefile.rb installNuGetPackages

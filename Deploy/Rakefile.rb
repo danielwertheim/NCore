@@ -49,8 +49,16 @@ task :createCleanBuildFolder do
   FileUtils.mkdir_p("#{@env_buildfolderpath}Binaries")
 end
 
+desc "Install missing NuGet packages."
+exec :installNuGetPackages do |cmd|
+  FileList["Solution/**/packages.config"].each { |filepath|
+    cmd.command = "NuGet.exe"
+    cmd.parameters = "i #{filepath} -o Solution/packages"
+  }
+end
+
 desc "Clean and build the solution."
-msbuild :compileIt => :createCleanBuildFolder do |msb|
+msbuild :compileIt => [:createCleanBuildFolder, :installNuGetPackages] do |msb|
   msb.properties :configuration => @env_buildconfigname
   msb.targets :Clean, :Build
   msb.solution = "#{@env_solutionfolderpath}#{@env_projectname}.sln"
