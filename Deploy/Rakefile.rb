@@ -51,9 +51,9 @@ end
 
 desc "Install missing NuGet packages."
 exec :installNuGetPackages do |cmd|
-  FileList["Solution/**/packages.config"].each { |filepath|
+  FileList["#{@env_solutionfolderpath}**/packages.config"].each { |filepath|
     cmd.command = "NuGet.exe"
-    cmd.parameters = "i #{filepath} -o Solution/packages"
+    cmd.parameters = "i #{filepath} -o #{@env_solutionfolderpath}/packages"
   }
 end
 

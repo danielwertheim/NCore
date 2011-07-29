@@ -1,1 +1,1 @@
-rake -f Deploy/rakefile.rb installNuGetPackages
+rake -f setup-devenv.rb
