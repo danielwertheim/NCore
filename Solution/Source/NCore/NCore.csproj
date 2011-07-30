@@ -45,7 +45,7 @@
     <Compile Include="StringConverter.cs" />
     <Compile Include="Sys.cs" />
     <Compile Include="TypeExtensions.cs" />
-    <Compile Include="ValidationExtensions.cs" />
+    <Compile Include="Validation\EnsureExtensions.cs" />
     <Compile Include="Resources\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

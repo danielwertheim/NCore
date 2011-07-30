@@ -57,6 +57,7 @@
     <Compile Include="Reflections\TypeExtensionsIsNullableTypeTests.cs" />
     <Compile Include="Reflections\TypeExtensionsIsSimpleTypeTests.cs" />
     <Compile Include="UnitTestBase.cs" />
+    <Compile Include="Validation\EnsureExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Source\NCore\NCore.csproj">

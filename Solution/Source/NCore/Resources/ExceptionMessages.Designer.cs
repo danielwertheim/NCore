@@ -61,6 +61,69 @@ namespace NCore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to value &apos;{0}&apos; is not &gt;= limit &apos;{1}&apos;..
+        /// </summary>
+        internal static string EnsureExtensions_IsGteThan {
+            get {
+                return ResourceManager.GetString("EnsureExtensions_IsGteThan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to value &apos;{0}&apos; is &lt;= limit &apos;{1}&apos;..
+        /// </summary>
+        internal static string EnsureExtensions_IsGtThan {
+            get {
+                return ResourceManager.GetString("EnsureExtensions_IsGtThan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to value &apos;{0}&apos; is &gt; max &apos;{1}&apos;..
+        /// </summary>
+        internal static string EnsureExtensions_IsInRange_ToHigh {
+            get {
+                return ResourceManager.GetString("EnsureExtensions_IsInRange_ToHigh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to value &apos;{0}&apos; is &lt; min &apos;{1}&apos;..
+        /// </summary>
+        internal static string EnsureExtensions_IsInRange_ToLow {
+            get {
+                return ResourceManager.GetString("EnsureExtensions_IsInRange_ToLow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty collection is not allowed..
+        /// </summary>
+        internal static string EnsureExtensions_IsNonEmptyCollection {
+            get {
+                return ResourceManager.GetString("EnsureExtensions_IsNonEmptyCollection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty Guid is not allowed..
+        /// </summary>
+        internal static string EnsureExtensions_IsNonEmptyGuid {
+            get {
+                return ResourceManager.GetString("EnsureExtensions_IsNonEmptyGuid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value can not be null..
+        /// </summary>
+        internal static string EnsureExtensions_IsNotNull {
+            get {
+                return ResourceManager.GetString("EnsureExtensions_IsNotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The value being retrieved is not of supported type. It must either be a string or the type needs to implement IConvertible or if Nullable&lt;T&gt;, then T needs to implement it..
         /// </summary>
         internal static string StringConverter_AsString_TypeOfValueIsNotSupported {
@@ -75,42 +138,6 @@ namespace NCore.Resources {
         internal static string TypeExtensions_ExtractGenericType {
             get {
                 return ResourceManager.GetString("TypeExtensions_ExtractGenericType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is &lt;= limit &apos;{1}&apos;..
-        /// </summary>
-        internal static string ValidationExtensions_AssertGt {
-            get {
-                return ResourceManager.GetString("ValidationExtensions_AssertGt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is not &gt;= limit &apos;{1}&apos;..
-        /// </summary>
-        internal static string ValidationExtensions_AssertGte {
-            get {
-                return ResourceManager.GetString("ValidationExtensions_AssertGte", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is &gt; max &apos;{1}&apos;..
-        /// </summary>
-        internal static string ValidationExtensions_AssertInRange_ToHigh {
-            get {
-                return ResourceManager.GetString("ValidationExtensions_AssertInRange_ToHigh", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is &lt; min &apos;{1}&apos;..
-        /// </summary>
-        internal static string ValidationExtensions_AssertInRange_ToLow {
-            get {
-                return ResourceManager.GetString("ValidationExtensions_AssertInRange_ToLow", resourceCulture);
             }
         }
     }
