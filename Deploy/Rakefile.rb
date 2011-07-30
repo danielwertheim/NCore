@@ -15,8 +15,9 @@ require 'albacore'
 @env_projectfullname = ENV['env_projectfullname']
 @env_buildfolderpath = ENV['env_buildfolderpath']
 @env_unitTestXmlResultsPath = ENV['env_unitTestXmlResultsPath']
-@env_nugetApiKey = ENV['env_nugetApiKey']
-@env_nugetHostUrl = ENV['env_nugetHostUrl']
+@env_nugetPublishApiKey = ENV['env_nugetPublishApiKey']
+@env_nugetPublishUrl = ENV['env_nugetPublishUrl']
+@env_nugetSourceUrl = ENV['env_nugetSourceUrl']
 @env_solutionfolderpath = "../Solution/"
 #--------------------------------------
 # Albacore flow controlling tasks
@@ -55,7 +56,7 @@ desc "Install missing NuGet packages."
 exec :installNuGetPackages do |cmd|
   FileList["#{@env_solutionfolderpath}**/packages.config"].each { |filepath|
     cmd.command = "NuGet.exe"
-    cmd.parameters = "i #{filepath} -o #{@env_solutionfolderpath}/packages"
+    cmd.parameters = "i #{filepath} -o #{@env_solutionfolderpath}/packages -s #{@env_nugetSourceUrl}"
   }
 end
 
@@ -95,5 +96,5 @@ desc "Publish NuGet package"
 exec :publishNuGetPackage do |cmd|
   cmd.command = "NuGet.exe"
   cmd.working_directory = "#{@env_buildfolderpath}"
-  cmd.parameters = "push #{@env_projectname}.#{@env_buildversion}.nupkg #{@env_nugetApiKey} -src #{@env_nugetHostUrl}"
+  cmd.parameters = "push #{@env_projectname}.#{@env_buildversion}.nupkg #{@env_nugetPublishApiKey} -src #{@env_nugetPublishUrl}"
 end
