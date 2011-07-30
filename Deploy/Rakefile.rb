@@ -15,6 +15,8 @@ require 'albacore'
 @env_projectfullname = ENV['env_projectfullname']
 @env_buildfolderpath = ENV['env_buildfolderpath']
 @env_unitTestXmlResultsPath = ENV['env_unitTestXmlResultsPath']
+@env_nugetApiKey = ENV['env_nugetApiKey']
+@env_nugetHostUrl = ENV['env_nugetHostUrl']
 @env_solutionfolderpath = "../Solution/"
 #--------------------------------------
 # Albacore flow controlling tasks
@@ -29,7 +31,7 @@ desc "Executes all tests."
 task :testIt => [:runUnitTests]
 
 desc "Creates ZIP and NuGet packages."
-task :deployIt => [:createZipPackage, :createNuGetPackage]
+task :deployIt => [:createZipPackage, :createNuGetPackage, :publishNuGetPackage]
 #--------------------------------------
 # Albacore tasks
 #--------------------------------------
@@ -87,4 +89,11 @@ desc "Creates NuGet package"
 exec :createNuGetPackage do |cmd|
   cmd.command = "NuGet.exe"
   cmd.parameters = "pack #{@env_projectname}.nuspec -version #{@env_buildversion} -nodefaultexcludes -outputdirectory #{@env_buildfolderpath} -basepath #{@env_buildfolderpath}Binaries"
+end
+
+desc "Publish NuGet package"
+exec :publishNuGetPackage do |cmd|
+  cmd.command = "NuGet.exe"
+  cmd.working_directory = "#{@env_buildfolderpath}"
+  cmd.parameters = "push #{@env_projectname}.#{@env_buildversion}.nupkg #{@env_nugetApiKey} -src #{@env_nugetHostUrl}"
 end

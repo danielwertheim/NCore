@@ -14,5 +14,8 @@
 	<licenseUrl>http://github.com/sedanwer/ncore/blob/master/Solution/License-NCore.txt</licenseUrl>
 	<requireLicenseAcceptance>false</requireLicenseAcceptance>
 	<tags>core,utils,helpers,extensions</tags>
-    </metadata>
+  </metadata>
+  <files>
+      <file src="*.*" target="lib" />
+  </files>    
 </package>
