@@ -37,6 +37,9 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Exceptions.cs" />
     <Compile Include="DefaultFormatting.cs" />
     <Compile Include="Expressions\ExpressionExtensions.cs" />
