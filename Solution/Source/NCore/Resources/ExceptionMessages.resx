@@ -144,4 +144,7 @@
   <data name="TypeExtensions_ExtractGenericType" xml:space="preserve">
     <value>Supported generic collections on model are: implementations of either IEnumerable&lt;T&gt; or IList&lt;T&gt;.</value>
   </data>
+  <data name="ExpressionUtils_GetRightMostMember_NoMemberFound" xml:space="preserve">
+    <value>No MemberExpression found in expression: '{0}'.</value>
+  </data>
 </root>

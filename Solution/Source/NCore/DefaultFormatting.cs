@@ -14,7 +14,7 @@ namespace NCore
         public DefaultFormatting()
         {
             FormatProvider = CultureInfo.InvariantCulture;
-            DateTimeFormatProvider = new CultureInfo("sv-SE");
+            DateTimeFormatProvider = new CultureInfo("sv-SE").DateTimeFormat;
             DateTimePattern = "yyyy-MM-dd HH:mm:ss.FFFFFFFK";
             Encoding = Encoding.UTF8;
         }

@@ -6,7 +6,7 @@ namespace NCore.Tests.UnitTests
     [TestFixture]
     public class StringConverterTests : UnitTestBase
     {
-        private readonly IStringConverter _stringConverter = new StringConverter(Sys.Formatting);
+        private readonly IStringConverter _stringConverter = new StringConverter(new DefaultFormatting());
 
         [Test]
         public void AsString_ForInt_ReturnsIntAsString()

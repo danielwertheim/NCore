@@ -124,6 +124,15 @@ namespace NCore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No MemberExpression found in expression: &apos;{0}&apos;..
+        /// </summary>
+        internal static string ExpressionUtils_GetRightMostMember_NoMemberFound {
+            get {
+                return ResourceManager.GetString("ExpressionUtils_GetRightMostMember_NoMemberFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The value being retrieved is not of supported type. It must either be a string or the type needs to implement IConvertible or if Nullable&lt;T&gt;, then T needs to implement it..
         /// </summary>
         internal static string StringConverter_AsString_TypeOfValueIsNotSupported {
