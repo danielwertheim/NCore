@@ -147,4 +147,13 @@
   <data name="ExpressionUtils_GetRightMostMember_NoMemberFound" xml:space="preserve">
     <value>No MemberExpression found in expression: '{0}'.</value>
   </data>
+  <data name="EnsureExtensions_HasNonWhiteSpaceValue" xml:space="preserve">
+    <value>The string can't be left empty, null or consist of only whitespaces.</value>
+  </data>
+  <data name="EnsureExtensions_IsFalseFor" xml:space="preserve">
+    <value>Expected an expression that evaluates to false.</value>
+  </data>
+  <data name="EnsureExtensions_IsTrueFor" xml:space="preserve">
+    <value>Expected an expression that evaluates to true.</value>
+  </data>
 </root>

@@ -61,6 +61,24 @@ namespace NCore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The string can&apos;t be left empty, null or consist of only whitespaces..
+        /// </summary>
+        internal static string EnsureExtensions_HasNonWhiteSpaceValue {
+            get {
+                return ResourceManager.GetString("EnsureExtensions_HasNonWhiteSpaceValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected an expression that evaluates to false..
+        /// </summary>
+        internal static string EnsureExtensions_IsFalseFor {
+            get {
+                return ResourceManager.GetString("EnsureExtensions_IsFalseFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to value &apos;{0}&apos; is not &gt;= limit &apos;{1}&apos;..
         /// </summary>
         internal static string EnsureExtensions_IsGteThan {
@@ -120,6 +138,15 @@ namespace NCore.Resources {
         internal static string EnsureExtensions_IsNotNull {
             get {
                 return ResourceManager.GetString("EnsureExtensions_IsNotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected an expression that evaluates to true..
+        /// </summary>
+        internal static string EnsureExtensions_IsTrueFor {
+            get {
+                return ResourceManager.GetString("EnsureExtensions_IsTrueFor", resourceCulture);
             }
         }
         
