@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using NCore.Reflections;
+using NUnit.Framework;
 
 namespace NCore.Tests.UnitTests.Reflections
 {

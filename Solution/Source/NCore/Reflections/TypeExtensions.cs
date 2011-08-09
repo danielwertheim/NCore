@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NCore.Resources;
 
-namespace NCore
+namespace NCore.Reflections
 {
     public static class TypeExtensions
     {
@@ -149,6 +149,11 @@ namespace NCore
             return t == CharType;
         }
 
+        public static bool IsEnumType(this Type t)
+        {
+            return (t.BaseType == EnumType) || t.IsEnum;
+        }
+
         public static bool IsNullableValueType(this Type t)
         {
             return (t.IsValueType && t.IsGenericType && t.GetGenericTypeDefinition() == NullableType);
@@ -212,11 +217,6 @@ namespace NCore
         public static bool IsNullableCharType(this Type t)
         {
             return t == NullableCharType;
-        }
-
-        public static bool IsEnumType(this Type t)
-        {
-            return (t.BaseType == EnumType) || t.IsEnum;
         }
 
         public static bool IsNullableEnumType(this Type t)

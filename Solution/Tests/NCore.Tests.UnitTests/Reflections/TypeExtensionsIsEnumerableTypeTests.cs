@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using NCore.Reflections;
 using NUnit.Framework;
 
 namespace NCore.Tests.UnitTests.Reflections

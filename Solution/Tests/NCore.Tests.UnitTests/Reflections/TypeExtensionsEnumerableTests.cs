@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using NCore.Reflections;
 using NCore.Resources;
 using NUnit.Framework;
 

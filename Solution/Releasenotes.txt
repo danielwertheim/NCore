@@ -8,4 +8,8 @@ C:      Bug fixes
 D:      Build number.
 
 v0.1.0
----
+New			Client profile 4.0.
+New			System.Linq.Expressions extensions to extract Path and right most member.
+New			Validation of parameters via Validation namespace and Ensure class.
+New			Centralized string conversion.
+New			Reflections.TypeExtensions for determination of types and handling of enumerable element types.
