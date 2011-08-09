@@ -58,7 +58,12 @@
     <Compile Include="Reflections\TypeExtensionsIsNullableTypeTests.cs" />
     <Compile Include="Reflections\TypeExtensionsIsSimpleTypeTests.cs" />
     <Compile Include="UnitTestBase.cs" />
-    <Compile Include="Validation\EnsureExtensionsTests.cs" />
+    <Compile Include="Validation\EnsureCollectionParamsTests.cs" />
+    <Compile Include="Validation\EnsureExpressionParamTests.cs" />
+    <Compile Include="Validation\EnsureGuidParamTests.cs" />
+    <Compile Include="Validation\EnsureNumericParamTests.cs" />
+    <Compile Include="Validation\EnsureObjectParamTests.cs" />
+    <Compile Include="Validation\EnsureStringParamTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Source\NCore\NCore.csproj">
