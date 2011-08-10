@@ -58,6 +58,7 @@
     <Compile Include="Reflections\TypeExtensionsIsEnumerableTypeTests.cs" />
     <Compile Include="Reflections\TypeExtensionsIsNullableTypeTests.cs" />
     <Compile Include="Reflections\TypeExtensionsIsSimpleTypeTests.cs" />
+    <Compile Include="StringExtensionsTests.cs" />
     <Compile Include="UnitTestBase.cs" />
     <Compile Include="Validation\EnsureCollectionParamsTests.cs" />
     <Compile Include="Validation\EnsureExpressionParamTests.cs" />
