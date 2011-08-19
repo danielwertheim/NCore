@@ -40,6 +40,7 @@
     <Compile Include="..\..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Collections\DictionaryExtensions.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="DefaultFormatting.cs" />
     <Compile Include="Expressions\ExpressionExtensions.cs" />

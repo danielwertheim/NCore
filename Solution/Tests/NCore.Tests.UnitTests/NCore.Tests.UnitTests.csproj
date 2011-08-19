@@ -48,6 +48,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\DictionaryExtensionsTests.cs" />
     <Compile Include="Expressions\ExpressionExtensionsTests.cs" />
     <Compile Include="Reflections\TypeExtensionsIsFubuTypeTests.cs" />
     <Compile Include="StringConverterTests.cs" />
