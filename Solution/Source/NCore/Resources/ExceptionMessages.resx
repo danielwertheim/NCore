@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EnsureExtensions_IsGteThan" xml:space="preserve">
+  <data name="EnsureExtensions_IsGte" xml:space="preserve">
     <value>value '{0}' is not &gt;= limit '{1}'.</value>
   </data>
-  <data name="EnsureExtensions_IsGtThan" xml:space="preserve">
+  <data name="EnsureExtensions_IsGt" xml:space="preserve">
     <value>value '{0}' is &lt;= limit '{1}'.</value>
   </data>
   <data name="EnsureExtensions_IsInRange_ToHigh" xml:space="preserve">

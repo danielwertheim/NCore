@@ -79,20 +79,20 @@ namespace NCore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is not &gt;= limit &apos;{1}&apos;..
+        ///   Looks up a localized string similar to value &apos;{0}&apos; is &lt;= limit &apos;{1}&apos;..
         /// </summary>
-        internal static string EnsureExtensions_IsGteThan {
+        internal static string EnsureExtensions_IsGt {
             get {
-                return ResourceManager.GetString("EnsureExtensions_IsGteThan", resourceCulture);
+                return ResourceManager.GetString("EnsureExtensions_IsGt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is &lt;= limit &apos;{1}&apos;..
+        ///   Looks up a localized string similar to value &apos;{0}&apos; is not &gt;= limit &apos;{1}&apos;..
         /// </summary>
-        internal static string EnsureExtensions_IsGtThan {
+        internal static string EnsureExtensions_IsGte {
             get {
-                return ResourceManager.GetString("EnsureExtensions_IsGtThan", resourceCulture);
+                return ResourceManager.GetString("EnsureExtensions_IsGte", resourceCulture);
             }
         }
         

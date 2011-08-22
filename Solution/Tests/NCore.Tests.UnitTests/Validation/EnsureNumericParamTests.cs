@@ -11,81 +11,81 @@ namespace NCore.Tests.UnitTests.Validation
         private const string ParamName = "test";
 
         [Test]
-        public void Param_IsGtThan_WhenIntIsEqualToLimit_ThrowsArgumentOutOfRangeException()
+        public void Param_IsGt_WhenIntIsEqualToLimit_ThrowsArgumentOutOfRangeException()
         {
             var limit = 42;
             var value = 42;
 
             var ex = Assert.Throws<ArgumentOutOfRangeException>(
-                () => Ensure.Param(value, ParamName).IsGtThan(limit));
+                () => Ensure.Param(value, ParamName).IsGt(limit));
 
             Assert.AreEqual(ParamName, ex.ParamName);
-            Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsGtThan.Inject(value, limit)
+            Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsGt.Inject(value, limit)
                 + "\r\nParameter name: test",
                 ex.Message);
         }
 
         [Test]
-        public void Param_IsGtThan_WhenIntIsLowerThanLimit_ThrowsArgumentOutOfRangeException()
+        public void Param_IsGt_WhenIntIsLowerThanLimit_ThrowsArgumentOutOfRangeException()
         {
             var limit = 43;
             var value = 42;
 
             var ex = Assert.Throws<ArgumentOutOfRangeException>(
-                () => Ensure.Param(value, ParamName).IsGtThan(limit));
+                () => Ensure.Param(value, ParamName).IsGt(limit));
 
             Assert.AreEqual(ParamName, ex.ParamName);
-            Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsGtThan.Inject(value, limit)
+            Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsGt.Inject(value, limit)
                 + "\r\nParameter name: test",
                 ex.Message);
         }
 
         [Test]
-        public void Param_IsGtThan_WhenIntIsGreaterThanLimit_ReturnsPassedValue()
+        public void Param_IsGt_WhenIntIsGreaterThanLimit_ReturnsPassedValue()
         {
             const int limit = 41;
             const int value = 42;
 
-            var returnedValue = Ensure.Param(value, ParamName).IsGtThan(limit);
+            var returnedValue = Ensure.Param(value, ParamName).IsGt(limit);
 
             Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(value, returnedValue.Value);
         }
 
         [Test]
-        public void Param_IsGteThan_WhenIntIsEqualToLimit_ReturnsPassedValue()
+        public void Param_IsGte_WhenIntIsEqualToLimit_ReturnsPassedValue()
         {
             const int limit = 42;
             const int value = 42;
 
-            var returnedValue = Ensure.Param(value, ParamName).IsGteThan(limit);
+            var returnedValue = Ensure.Param(value, ParamName).IsGte(limit);
 
             Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(value, returnedValue.Value);
         }
 
         [Test]
-        public void Param_IsGteThan_WhenIntIsLowerThanLimit_ThrowsArgumentOutOfRangeException()
+        public void Param_IsGte_WhenIntIsLowerThanLimit_ThrowsArgumentOutOfRangeException()
         {
             var limit = 42;
             var value = 41;
 
             var ex = Assert.Throws<ArgumentOutOfRangeException>(
-                () => Ensure.Param(value, ParamName).IsGteThan(limit));
+                () => Ensure.Param(value, ParamName).IsGte(limit));
 
             Assert.AreEqual(ParamName, ex.ParamName);
-            Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsGteThan.Inject(value, limit)
+            Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsGte.Inject(value, limit)
                 + "\r\nParameter name: test",
                 ex.Message);
         }
 
         [Test]
-        public void Param_IsGteThan_WhenIntIsGreaterThan_ReturnsPassedValue()
+        public void Param_IsGte_WhenIntIsGreaterThan_ReturnsPassedValue()
         {
             const int limit = 41;
             const int value = 42;
 
-            var returnedValue = Ensure.Param(value, ParamName).IsGteThan(limit);
+            var returnedValue = Ensure.Param(value, ParamName).IsGte(limit);
 
             Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(value, returnedValue.Value);

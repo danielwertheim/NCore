@@ -7,19 +7,19 @@ namespace NCore.Validation
     public static class EnsureNumericExtensions
     {
         [DebuggerStepThrough]
-        public static Param<int> IsGtThan(this Param<int> param, int limit)
+        public static Param<int> IsGt(this Param<int> param, int limit)
         {
             if (param.Value <= limit)
-                throw new ArgumentOutOfRangeException(param.Name, ExceptionMessages.EnsureExtensions_IsGtThan.Inject(param.Value, limit));
+                throw new ArgumentOutOfRangeException(param.Name, ExceptionMessages.EnsureExtensions_IsGt.Inject(param.Value, limit));
 
             return param;
         }
 
         [DebuggerStepThrough]
-        public static Param<int> IsGteThan(this Param<int> param, int limit)
+        public static Param<int> IsGte(this Param<int> param, int limit)
         {
             if (!(param.Value >= limit))
-                throw new ArgumentOutOfRangeException(param.Name, ExceptionMessages.EnsureExtensions_IsGteThan.Inject(param.Value, limit));
+                throw new ArgumentOutOfRangeException(param.Name, ExceptionMessages.EnsureExtensions_IsGte.Inject(param.Value, limit));
 
             return param;
         }
