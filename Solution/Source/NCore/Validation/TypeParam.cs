@@ -8,7 +8,7 @@ namespace NCore.Validation
 
         public readonly Type Type;
 
-        public TypeParam(Type type, string name)
+        internal TypeParam(Type type, string name)
         {
             Name = name;
             Type = type;

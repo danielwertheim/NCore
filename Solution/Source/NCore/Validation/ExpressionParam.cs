@@ -8,7 +8,7 @@ namespace NCore.Validation
 
         public readonly Func<bool> Expression;
 
-        public ExpressionParam(string name, Func<bool> expression)
+        internal ExpressionParam(string name, Func<bool> expression)
         {
             Name = name;
             Expression = expression;
