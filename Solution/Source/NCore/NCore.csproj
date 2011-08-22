@@ -41,7 +41,6 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Collections\DictionaryExtensions.cs" />
-    <Compile Include="Exceptions.cs" />
     <Compile Include="DefaultFormatting.cs" />
     <Compile Include="Expressions\ExpressionExtensions.cs" />
     <Compile Include="IFormatting.cs" />
@@ -63,6 +62,7 @@
     <Compile Include="Validation\EnsureNumericExtensions.cs" />
     <Compile Include="Validation\EnsureObjectExtensions.cs" />
     <Compile Include="Validation\EnsureStringExtensions.cs" />
+    <Compile Include="Validation\ExpressionParam.cs" />
     <Compile Include="Validation\Param.cs" />
   </ItemGroup>
   <ItemGroup>

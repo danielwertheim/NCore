@@ -79,7 +79,7 @@ namespace NCore.Reflections
             var generics = type.GetGenericArguments();
 
             if (generics.Length != 1)
-                throw Exceptions.NewException(ExceptionMessages.TypeExtensions_ExtractGenericType);
+                throw new NCoreException(ExceptionMessages.TypeExtensions_ExtractGenericType);
 
             return generics[0];
         }

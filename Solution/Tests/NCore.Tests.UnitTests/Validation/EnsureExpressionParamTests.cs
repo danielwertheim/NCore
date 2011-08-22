@@ -11,13 +11,10 @@ namespace NCore.Tests.UnitTests.Validation
         private const string ParamName = "test";
 
         [Test]
-        public void EnsureIsTrueFor_WhenFalseExpression_ThrowsArgumentException()
+        public void EnsureIsTrue_WhenFalseExpression_ThrowsArgumentException()
         {
-            var value = 42;
-            Func<int, bool> falseExpression = v => false;
-
             var ex = Assert.Throws<ArgumentException>(
-                () => Ensure.Param(value, ParamName).IsTrueFor(falseExpression));
+                () => Ensure.Param(() => false, ParamName).IsTrue());
 
             Assert.AreEqual(ParamName, ex.ParamName);
             Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsTrueFor
@@ -26,24 +23,18 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void EnsureIsTrueFor_WhenTrueExpression_ReturnsPassedValue()
+        public void EnsureIsTrue_WhenTrueExpression_ReturnsPassedValue()
         {
-            var value = 42;
-            Func<int, bool> trueExpression = v => true;
+            var returnedValue = Ensure.Param(() => true, ParamName).IsTrue();
 
-            var returnedValue = Ensure.Param(value, ParamName).IsTrueFor(trueExpression);
-
-            Assert.AreEqual(value, returnedValue.Value);
+            Assert.IsTrue(returnedValue.Expression());
         }
 
         [Test]
         public void EnsureIsFalseFor_WhenTrueExpression_ThrowsArgumentException()
         {
-            var value = 42;
-            Func<int, bool> trueExpression = v => true;
-
             var ex = Assert.Throws<ArgumentException>(
-                () => Ensure.Param(value, ParamName).IsFalseFor(trueExpression));
+                () => Ensure.Param(() => true, ParamName).IsFalse());
 
             Assert.AreEqual(ParamName, ex.ParamName);
             Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsFalseFor
@@ -54,12 +45,9 @@ namespace NCore.Tests.UnitTests.Validation
         [Test]
         public void EnsureIsFalseFor_WhenFalseExpression_ReturnsPassedValue()
         {
-            var value = 42;
-            Func<int, bool> falseExpression = v => false;
+            var returnedValue = Ensure.Param(() => false, ParamName).IsFalse();
 
-            var returnedValue = Ensure.Param(value, ParamName).IsFalseFor(falseExpression);
-
-            Assert.AreEqual(value, returnedValue.Value);
+            Assert.IsFalse(returnedValue.Expression());
         }
     }
 }
