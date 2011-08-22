@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EnsureExtensions_IsGte" xml:space="preserve">
-    <value>value '{0}' is not &gt;= limit '{1}'.</value>
+    <value>value '{0}' is not greater than or equal to limit '{1}'.</value>
   </data>
   <data name="EnsureExtensions_IsGt" xml:space="preserve">
-    <value>value '{0}' is &lt;= limit '{1}'.</value>
+    <value>value '{0}' is not greater than limit '{1}'.</value>
   </data>
   <data name="EnsureExtensions_IsInRange_ToHigh" xml:space="preserve">
     <value>value '{0}' is &gt; max '{1}'.</value>
@@ -158,5 +158,8 @@
   </data>
   <data name="EnsureExtensions_IsOfType" xml:space="preserve">
     <value>The param is not of expected type: '{0}'.</value>
+  </data>
+  <data name="EnsureExtensions_IsLt" xml:space="preserve">
+    <value>value '{0}' is not lower than limit '{1}'.</value>
   </data>
 </root>

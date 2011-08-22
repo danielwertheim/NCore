@@ -11,6 +11,48 @@ namespace NCore.Tests.UnitTests.Validation
         private const string ParamName = "test";
 
         [Test]
+        public void Param_IsLt_WhenIntIsGtLimit_ThrowsArgumentOutOfRangeException()
+        {
+            var limit = 42;
+            var value = 43;
+
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(
+                () => Ensure.Param(value, ParamName).IsLt(limit));
+
+            Assert.AreEqual(ParamName, ex.ParamName);
+            Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsLt.Inject(value, limit)
+                + "\r\nParameter name: test",
+                ex.Message);
+        }
+
+        [Test]
+        public void Param_IsLit_WhenIntIsEqualToLimit_ReturnsPassedValues()
+        {
+            const int limit = 42;
+            const int value = 42;
+
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(
+                () => Ensure.Param(value, ParamName).IsLt(limit));
+
+            Assert.AreEqual(ParamName, ex.ParamName);
+            Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsLt.Inject(value, limit)
+                + "\r\nParameter name: test",
+                ex.Message);
+        }
+
+        [Test]
+        public void Param_IsLt_WhenIntIsLtLimit_ReturnsPassedValues()
+        {
+            const int limit = 42;
+            const int value = 41;
+
+            var returnedValue = Ensure.Param(value, ParamName).IsLt(limit);
+
+            Assert.AreEqual(ParamName, returnedValue.Name);
+            Assert.AreEqual(value, returnedValue.Value);
+        }
+
+        [Test]
         public void Param_IsGt_WhenIntIsEqualToLimit_ThrowsArgumentOutOfRangeException()
         {
             var limit = 42;
@@ -26,7 +68,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void Param_IsGt_WhenIntIsLowerThanLimit_ThrowsArgumentOutOfRangeException()
+        public void Param_IsGt_WhenIntIsLtLimit_ThrowsArgumentOutOfRangeException()
         {
             var limit = 43;
             var value = 42;
@@ -41,7 +83,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void Param_IsGt_WhenIntIsGreaterThanLimit_ReturnsPassedValue()
+        public void Param_IsGt_WhenIntIsGtLimit_ReturnsPassedValue()
         {
             const int limit = 41;
             const int value = 42;
@@ -65,7 +107,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void Param_IsGte_WhenIntIsLowerThanLimit_ThrowsArgumentOutOfRangeException()
+        public void Param_IsGte_WhenIntIsLtLimit_ThrowsArgumentOutOfRangeException()
         {
             var limit = 42;
             var value = 41;
@@ -80,7 +122,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void Param_IsGte_WhenIntIsGreaterThan_ReturnsPassedValue()
+        public void Param_IsGte_WhenIntIsGtLimit_ReturnsPassedValue()
         {
             const int limit = 41;
             const int value = 42;

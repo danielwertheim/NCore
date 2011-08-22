@@ -79,7 +79,7 @@ namespace NCore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is &lt;= limit &apos;{1}&apos;..
+        ///   Looks up a localized string similar to value &apos;{0}&apos; is not greater than limit &apos;{1}&apos;..
         /// </summary>
         internal static string EnsureExtensions_IsGt {
             get {
@@ -88,7 +88,7 @@ namespace NCore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is not &gt;= limit &apos;{1}&apos;..
+        ///   Looks up a localized string similar to value &apos;{0}&apos; is not greater than or equal to limit &apos;{1}&apos;..
         /// </summary>
         internal static string EnsureExtensions_IsGte {
             get {
@@ -111,6 +111,15 @@ namespace NCore.Resources {
         internal static string EnsureExtensions_IsInRange_ToLow {
             get {
                 return ResourceManager.GetString("EnsureExtensions_IsInRange_ToLow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to value &apos;{0}&apos; is not lower than limit &apos;{1}&apos;..
+        /// </summary>
+        internal static string EnsureExtensions_IsLt {
+            get {
+                return ResourceManager.GetString("EnsureExtensions_IsLt", resourceCulture);
             }
         }
         
