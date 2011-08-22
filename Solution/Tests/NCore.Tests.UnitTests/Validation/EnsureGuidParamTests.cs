@@ -27,9 +27,10 @@ namespace NCore.Tests.UnitTests.Validation
         {
             var guid = Guid.NewGuid();
 
-            var returnedGuid = Ensure.Param(guid, ParamName).IsNotEmpty();
+            var returnedValue = Ensure.Param(guid, ParamName).IsNotEmpty();
 
-            Assert.AreEqual(guid, returnedGuid.Value);
+            Assert.AreEqual(ParamName, returnedValue.Name);
+            Assert.AreEqual(guid, returnedValue.Value);
         }
     }
 }

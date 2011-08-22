@@ -11,7 +11,7 @@ namespace NCore.Tests.UnitTests.Validation
         private const string ParamName = "test";
 
         [Test]
-        public void IsNotNull_WhenRefTypeIsNull_ThrowsArgumentNullException()
+        public void Param_IsNotNull_WhenRefTypeIsNull_ThrowsArgumentNullException()
         {
             object value = null;
 
@@ -25,12 +25,13 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void IsNotNull_WhenRefTypeIsNotNull_ReturnsPassedObjectInstance()
+        public void Param_IsNotNull_WhenRefTypeIsNotNull_ReturnsPassedObjectInstance()
         {
             var item = new { Value = 42 };
 
             var returnedItem = Ensure.Param(item, ParamName).IsNotNull();
 
+            Assert.AreEqual(ParamName, returnedItem.Name);
             Assert.AreEqual(item, returnedItem.Value);
         }        
     }

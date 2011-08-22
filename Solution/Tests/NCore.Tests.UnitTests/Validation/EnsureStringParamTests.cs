@@ -11,7 +11,7 @@ namespace NCore.Tests.UnitTests.Validation
         private const string ParamName = "test";
 
         [Test]
-        public void IsNotNull_WhenStringIsNull_ThrowsArgumentNullException()
+        public void Param_IsNotNull_WhenStringIsNull_ThrowsArgumentNullException()
         {
             string value = null;
 
@@ -25,17 +25,18 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void IsNotNull_WhenStringIsNotNull_ReturnsPassedString()
+        public void Param_IsNotNull_WhenStringIsNotNull_ReturnsPassedString()
         {
             var value = string.Empty;
 
             var returnedValue = Ensure.Param(value, ParamName).IsNotNull();
 
+            Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(value, returnedValue.Value);
         }
 
         [Test]
-        public void HasNonWhiteSpaceValue_WhenWhiteSpaceString_ThrowsArgumentNullException()
+        public void Param_HasNonWhiteSpaceValue_WhenWhiteSpaceString_ThrowsArgumentNullException()
         {
             string value = " ";
 
@@ -49,12 +50,13 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void HasNonWhiteSpaceValue_WhenStringHasValue_ReturnsPassedString()
+        public void Param_HasNonWhiteSpaceValue_WhenStringHasValue_ReturnsPassedString()
         {
             var value = "delta";
 
             var returnedValue = Ensure.Param(value, ParamName).HasNonWhiteSpaceValue();
 
+            Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(value, returnedValue.Value);
         }
     }

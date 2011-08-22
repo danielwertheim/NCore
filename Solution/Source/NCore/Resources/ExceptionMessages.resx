@@ -156,4 +156,7 @@
   <data name="EnsureExtensions_IsTrueFor" xml:space="preserve">
     <value>Expected an expression that evaluates to true.</value>
   </data>
+  <data name="EnsureExtensions_IsOfType" xml:space="preserve">
+    <value>The param is not of expected type: '{0}'.</value>
+  </data>
 </root>

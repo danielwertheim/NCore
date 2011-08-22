@@ -11,7 +11,7 @@ namespace NCore.Tests.UnitTests.Validation
         private const string ParamName = "test";
 
         [Test]
-        public void EnsureIsGtThan_WhenIntIsEqualToLimit_ThrowsArgumentOutOfRangeException()
+        public void Param_IsGtThan_WhenIntIsEqualToLimit_ThrowsArgumentOutOfRangeException()
         {
             var limit = 42;
             var value = 42;
@@ -26,7 +26,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void EnsureIsGtThan_WhenIntIsLowerThanLimit_ThrowsArgumentOutOfRangeException()
+        public void Param_IsGtThan_WhenIntIsLowerThanLimit_ThrowsArgumentOutOfRangeException()
         {
             var limit = 43;
             var value = 42;
@@ -41,29 +41,31 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void EnsureIsGtThan_WhenIntIsGreaterThanLimit_ReturnsPassedValue()
+        public void Param_IsGtThan_WhenIntIsGreaterThanLimit_ReturnsPassedValue()
         {
             const int limit = 41;
             const int value = 42;
 
             var returnedValue = Ensure.Param(value, ParamName).IsGtThan(limit);
 
+            Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(value, returnedValue.Value);
         }
 
         [Test]
-        public void EnsureIsGteThan_WhenIntIsEqualToLimit_ReturnsPassedValue()
+        public void Param_IsGteThan_WhenIntIsEqualToLimit_ReturnsPassedValue()
         {
             const int limit = 42;
             const int value = 42;
 
             var returnedValue = Ensure.Param(value, ParamName).IsGteThan(limit);
 
+            Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(value, returnedValue.Value);
         }
 
         [Test]
-        public void EnsureIsGteThan_WhenIntIsLowerThanLimit_ThrowsArgumentOutOfRangeException()
+        public void Param_IsGteThan_WhenIntIsLowerThanLimit_ThrowsArgumentOutOfRangeException()
         {
             var limit = 42;
             var value = 41;
@@ -78,18 +80,19 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void EnsureIsGteThan_WhenIntIsGreaterThan_ReturnsPassedValue()
+        public void Param_IsGteThan_WhenIntIsGreaterThan_ReturnsPassedValue()
         {
             const int limit = 41;
             const int value = 42;
 
             var returnedValue = Ensure.Param(value, ParamName).IsGteThan(limit);
 
+            Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(value, returnedValue.Value);
         }
 
         [Test]
-        public void EnsureIsInRange_WhenIntIsOnLowerLimit_ReturnsPassedValue()
+        public void Param_IsInRange_WhenIntIsOnLowerLimit_ReturnsPassedValue()
         {
             const int lowerLimit = 42;
             const int upperLimit = 50;
@@ -97,11 +100,12 @@ namespace NCore.Tests.UnitTests.Validation
 
             var returnedValue = Ensure.Param(value, ParamName).IsInRange(lowerLimit, upperLimit);
 
+            Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(value, returnedValue.Value);
         }
 
         [Test]
-        public void EnsureIsInRange_WhenIntIsOnUpperLimit_ReturnsPassedValue()
+        public void Param_IsInRange_WhenIntIsOnUpperLimit_ReturnsPassedValue()
         {
             const int lowerLimit = 42;
             const int upperLimit = 50;
@@ -109,11 +113,12 @@ namespace NCore.Tests.UnitTests.Validation
 
             var returnedValue = Ensure.Param(value, ParamName).IsInRange(lowerLimit, upperLimit);
 
+            Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(value, returnedValue.Value);
         }
 
         [Test]
-        public void EnsureIsInRange_WhenIntIsBetweenLimits_ReturnsPassedValue()
+        public void Param_IsInRange_WhenIntIsBetweenLimits_ReturnsPassedValue()
         {
             const int lowerLimit = 40;
             const int upperLimit = 50;
@@ -121,11 +126,12 @@ namespace NCore.Tests.UnitTests.Validation
 
             var returnedValue = Ensure.Param(value, ParamName).IsInRange(lowerLimit, upperLimit);
 
+            Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(value, returnedValue.Value);
         }
 
         [Test]
-        public void EnsureIsInRange_WhenIntIsLowerThanLowerLimit_ThrowsArgumentOutOfRangeException()
+        public void Param_IsInRange_WhenIntIsLowerThanLowerLimit_ThrowsArgumentOutOfRangeException()
         {
             const int lowerLimit = 40;
             const int upperLimit = 50;
@@ -141,7 +147,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void EnsureIsInRange_WhenIntIsGreaterThanUpperLimit_ThrowsArgumentOutOfRangeException()
+        public void Param_IsInRange_WhenIntIsGreaterThanUpperLimit_ThrowsArgumentOutOfRangeException()
         {
             const int lowerLimit = 40;
             const int upperLimit = 50;
