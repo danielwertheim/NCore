@@ -10,9 +10,9 @@ namespace NCore.Validation
         public static TypeParam IsOfType(this TypeParam param, Type type)
         {
             if (!param.Type.Equals(type))
-                throw new ArgumentException(
-                    ExceptionMessages.EnsureExtensions_IsOfType.Inject(param.Type.FullName), 
-                    param.Name);
+                throw ExceptionFactory.CreateForParamValidation(
+                    param.Name,
+                    ExceptionMessages.EnsureExtensions_IsOfType.Inject(param.Type.FullName));
 
             return param;
         }

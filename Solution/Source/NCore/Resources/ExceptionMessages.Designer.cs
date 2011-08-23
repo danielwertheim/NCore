@@ -124,6 +124,15 @@ namespace NCore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to value &apos;{0}&apos; is not lower than or equal to limit &apos;{1}&apos;..
+        /// </summary>
+        internal static string EnsureExtensions_IsLte {
+            get {
+                return ResourceManager.GetString("EnsureExtensions_IsLte", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Empty collection is not allowed..
         /// </summary>
         internal static string EnsureExtensions_IsNonEmptyCollection {

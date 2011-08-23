@@ -9,7 +9,7 @@ namespace NCore.Validation
             return new Param<T>(name, value);
         }
 
-        public static ExpressionParam ParamExpression(Func<bool> expression, string name)
+        public static ExpressionParam Param(Func<bool> expression, string name)
         {
             return new ExpressionParam(name, expression);
         }

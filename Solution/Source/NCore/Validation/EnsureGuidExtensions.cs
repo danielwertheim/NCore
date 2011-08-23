@@ -10,7 +10,7 @@ namespace NCore.Validation
         public static Param<Guid> IsNotEmpty(this Param<Guid> param)
         {
             if (Guid.Empty.Equals(param.Value))
-                throw new ArgumentException(ExceptionMessages.EnsureExtensions_IsNonEmptyGuid, param.Name);
+                throw ExceptionFactory.CreateForParamValidation(param.Name, ExceptionMessages.EnsureExtensions_IsNonEmptyGuid);
 
             return param;
         }

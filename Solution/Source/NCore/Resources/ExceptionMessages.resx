@@ -162,4 +162,7 @@
   <data name="EnsureExtensions_IsLt" xml:space="preserve">
     <value>value '{0}' is not lower than limit '{1}'.</value>
   </data>
+  <data name="EnsureExtensions_IsLte" xml:space="preserve">
+    <value>value '{0}' is not lower than or equal to limit '{1}'.</value>
+  </data>
 </root>

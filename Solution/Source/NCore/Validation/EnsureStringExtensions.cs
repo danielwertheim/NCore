@@ -10,7 +10,7 @@ namespace NCore.Validation
         public static Param<string> HasNonWhiteSpaceValue(this Param<string> param)
         {
             if (string.IsNullOrWhiteSpace(param.Value))
-                throw new ArgumentException(ExceptionMessages.EnsureExtensions_HasNonWhiteSpaceValue, param.Name);
+                throw ExceptionFactory.CreateForParamValidation(param.Name, ExceptionMessages.EnsureExtensions_HasNonWhiteSpaceValue);
 
             return param;
         }

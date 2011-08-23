@@ -16,7 +16,7 @@ namespace NCore.Tests.UnitTests.Validation
             var limit = 42;
             var value = 43;
 
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(
+            var ex = Assert.Throws<ArgumentException>(
                 () => Ensure.Param(value, ParamName).IsLt(limit));
 
             Assert.AreEqual(ParamName, ex.ParamName);
@@ -26,12 +26,12 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void Param_IsLit_WhenIntIsEqualToLimit_ReturnsPassedValues()
+        public void Param_IsLt_WhenIntIsEqualToLimit_ReturnsPassedValues()
         {
             const int limit = 42;
             const int value = 42;
 
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(
+            var ex = Assert.Throws<ArgumentException>(
                 () => Ensure.Param(value, ParamName).IsLt(limit));
 
             Assert.AreEqual(ParamName, ex.ParamName);
@@ -58,7 +58,7 @@ namespace NCore.Tests.UnitTests.Validation
             var limit = 42;
             var value = 42;
 
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(
+            var ex = Assert.Throws<ArgumentException>(
                 () => Ensure.Param(value, ParamName).IsGt(limit));
 
             Assert.AreEqual(ParamName, ex.ParamName);
@@ -73,7 +73,7 @@ namespace NCore.Tests.UnitTests.Validation
             var limit = 43;
             var value = 42;
 
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(
+            var ex = Assert.Throws<ArgumentException>(
                 () => Ensure.Param(value, ParamName).IsGt(limit));
 
             Assert.AreEqual(ParamName, ex.ParamName);
@@ -89,6 +89,45 @@ namespace NCore.Tests.UnitTests.Validation
             const int value = 42;
 
             var returnedValue = Ensure.Param(value, ParamName).IsGt(limit);
+
+            Assert.AreEqual(ParamName, returnedValue.Name);
+            Assert.AreEqual(value, returnedValue.Value);
+        }
+
+        [Test]
+        public void Param_IsLte_WhenIntIsEqualToLimit_ReturnsPassedValue()
+        {
+            const int limit = 42;
+            const int value = 42;
+
+            var returnedValue = Ensure.Param(value, ParamName).IsLte(limit);
+
+            Assert.AreEqual(ParamName, returnedValue.Name);
+            Assert.AreEqual(value, returnedValue.Value);
+        }
+
+        [Test]
+        public void Param_IsLte_WhenIntIsGtLimit_ThrowsArgumentOutOfRangeException()
+        {
+            var limit = 42;
+            var value = 43;
+
+            var ex = Assert.Throws<ArgumentException>(
+                () => Ensure.Param(value, ParamName).IsLte(limit));
+
+            Assert.AreEqual(ParamName, ex.ParamName);
+            Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsLte.Inject(value, limit)
+                + "\r\nParameter name: test",
+                ex.Message);
+        }
+
+        [Test]
+        public void Param_IsLte_WhenIntIsLtLimit_ReturnsPassedValue()
+        {
+            const int limit = 42;
+            const int value = 41;
+
+            var returnedValue = Ensure.Param(value, ParamName).IsLte(limit);
 
             Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(value, returnedValue.Value);
@@ -112,7 +151,7 @@ namespace NCore.Tests.UnitTests.Validation
             var limit = 42;
             var value = 41;
 
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(
+            var ex = Assert.Throws<ArgumentException>(
                 () => Ensure.Param(value, ParamName).IsGte(limit));
 
             Assert.AreEqual(ParamName, ex.ParamName);
@@ -179,7 +218,7 @@ namespace NCore.Tests.UnitTests.Validation
             const int upperLimit = 50;
             const int value = lowerLimit - 1;
 
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(
+            var ex = Assert.Throws<ArgumentException>(
                 () => Ensure.Param(value, ParamName).IsInRange(lowerLimit, upperLimit));
 
             Assert.AreEqual(ParamName, ex.ParamName);
@@ -195,7 +234,7 @@ namespace NCore.Tests.UnitTests.Validation
             const int upperLimit = 50;
             const int value = upperLimit + 1;
 
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(
+            var ex = Assert.Throws<ArgumentException>(
                 () => Ensure.Param(value, ParamName).IsInRange(lowerLimit, upperLimit));
 
             Assert.AreEqual(ParamName, ex.ParamName);

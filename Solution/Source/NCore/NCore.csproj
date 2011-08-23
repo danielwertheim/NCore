@@ -63,6 +63,7 @@
     <Compile Include="Validation\EnsureObjectExtensions.cs" />
     <Compile Include="Validation\EnsureStringExtensions.cs" />
     <Compile Include="Validation\EnsureTypeExtensions.cs" />
+    <Compile Include="Validation\ExceptionFactory.cs" />
     <Compile Include="Validation\ExpressionParam.cs" />
     <Compile Include="Validation\Param.cs" />
     <Compile Include="Validation\TypeParam.cs" />

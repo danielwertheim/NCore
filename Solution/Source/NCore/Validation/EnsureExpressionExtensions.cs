@@ -10,7 +10,7 @@ namespace NCore.Validation
         public static ExpressionParam IsTrue(this ExpressionParam param)
         {
             if (!param.Expression())
-                throw new ArgumentException(ExceptionMessages.EnsureExtensions_IsTrueFor, param.Name);
+                throw ExceptionFactory.CreateForParamValidation(param.Name, ExceptionMessages.EnsureExtensions_IsTrueFor);
 
             return param;
         }
@@ -19,7 +19,7 @@ namespace NCore.Validation
         public static ExpressionParam IsFalse(this ExpressionParam param)
         {
             if (param.Expression())
-                throw new ArgumentException(ExceptionMessages.EnsureExtensions_IsFalseFor, param.Name);
+                throw ExceptionFactory.CreateForParamValidation(param.Name, ExceptionMessages.EnsureExtensions_IsFalseFor);
 
             return param;
         }

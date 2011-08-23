@@ -11,10 +11,10 @@ namespace NCore.Tests.UnitTests.Validation
         private const string ParamName = "test";
 
         [Test]
-        public void ParamExpression_IsTrue_WhenFalseExpression_ThrowsArgumentException()
+        public void Param_IsTrue_WhenFalseExpression_ThrowsArgumentException()
         {
             var ex = Assert.Throws<ArgumentException>(
-                () => Ensure.ParamExpression(() => false, ParamName).IsTrue());
+                () => Ensure.Param(() => false, ParamName).IsTrue());
 
             Assert.AreEqual(ParamName, ex.ParamName);
             Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsTrueFor
@@ -23,19 +23,19 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void ParamExpression_IsTrue_WhenTrueExpression_ReturnsPassedValue()
+        public void Param_IsTrue_WhenTrueExpression_ReturnsPassedValue()
         {
-            var returnedValue = Ensure.ParamExpression(() => true, ParamName).IsTrue();
+            var returnedValue = Ensure.Param(() => true, ParamName).IsTrue();
 
             Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.IsTrue(returnedValue.Expression());
         }
 
         [Test]
-        public void ParamExpression_IsFalse_WhenTrueExpression_ThrowsArgumentException()
+        public void Param_IsFalse_WhenTrueExpression_ThrowsArgumentException()
         {
             var ex = Assert.Throws<ArgumentException>(
-                () => Ensure.ParamExpression(() => true, ParamName).IsFalse());
+                () => Ensure.Param(() => true, ParamName).IsFalse());
 
             Assert.AreEqual(ParamName, ex.ParamName);
             Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsFalseFor
@@ -44,9 +44,9 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void ParamExpression_IsFalse_WhenFalseExpression_ReturnsPassedValue()
+        public void Param_IsFalse_WhenFalseExpression_ReturnsPassedValue()
         {
-            var returnedValue = Ensure.ParamExpression(() => false, ParamName).IsFalse();
+            var returnedValue = Ensure.Param(() => false, ParamName).IsFalse();
 
             Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.IsFalse(returnedValue.Expression());

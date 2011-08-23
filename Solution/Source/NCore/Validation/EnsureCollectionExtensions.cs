@@ -11,7 +11,7 @@ namespace NCore.Validation
         public static Param<T> HasItems<T>(this Param<T> param) where T : class, ICollection
         {
             if (param.Value == null || param.Value.Count < 1)
-                throw new ArgumentException(ExceptionMessages.EnsureExtensions_IsNonEmptyCollection, param.Name);
+                throw ExceptionFactory.CreateForParamValidation(param.Name, ExceptionMessages.EnsureExtensions_IsNonEmptyCollection);
 
             return param;
         }
