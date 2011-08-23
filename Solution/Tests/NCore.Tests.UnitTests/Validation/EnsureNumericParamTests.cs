@@ -11,7 +11,7 @@ namespace NCore.Tests.UnitTests.Validation
         private const string ParamName = "test";
 
         [Test]
-        public void IsLt_WhenIntIsGtLimit_ThrowsArgumentOutOfRangeException()
+        public void IsLt_WhenIntIsGtLimit_ThrowsArgumentException()
         {
             var limit = 42;
             var value = 43;
@@ -26,7 +26,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void IsLt_WhenIntIsEqualToLimit_ReturnsPassedValues()
+        public void IsLt_WhenIntIsEqualToLimit_ThrowsArgumentException()
         {
             const int limit = 42;
             const int value = 42;
@@ -53,7 +53,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void IsGt_WhenIntIsEqualToLimit_ThrowsArgumentOutOfRangeException()
+        public void IsGt_WhenIntIsEqualToLimit_ThrowsArgumentException()
         {
             var limit = 42;
             var value = 42;
@@ -68,7 +68,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void IsGt_WhenIntIsLtLimit_ThrowsArgumentOutOfRangeException()
+        public void IsGt_WhenIntIsLtLimit_ThrowsArgumentException()
         {
             var limit = 43;
             var value = 42;
@@ -107,7 +107,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void IsLte_WhenIntIsGtLimit_ThrowsArgumentOutOfRangeException()
+        public void IsLte_WhenIntIsGtLimit_ThrowsArgumentException()
         {
             var limit = 42;
             var value = 43;
@@ -146,7 +146,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void IsGte_WhenIntIsLtLimit_ThrowsArgumentOutOfRangeException()
+        public void IsGte_WhenIntIsLtLimit_ThrowsArgumentException()
         {
             var limit = 42;
             var value = 41;
@@ -212,7 +212,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void IsInRange_WhenIntIsLowerThanLowerLimit_ThrowsArgumentOutOfRangeException()
+        public void IsInRange_WhenIntIsLowerThanLowerLimit_ThrowsArgumentException()
         {
             const int lowerLimit = 40;
             const int upperLimit = 50;
@@ -228,7 +228,7 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void IsInRange_WhenIntIsGreaterThanUpperLimit_ThrowsArgumentOutOfRangeException()
+        public void IsInRange_WhenIntIsGreaterThanUpperLimit_ThrowsArgumentException()
         {
             const int lowerLimit = 40;
             const int upperLimit = 50;
