@@ -2,15 +2,13 @@ using System;
 
 namespace NCore.Validation
 {
-    public class TypeParam
+    public class TypeParam : Param
     {
-        public readonly string Name;
-
         public readonly Type Type;
 
-        internal TypeParam(Type type, string name)
+        internal TypeParam(string name, Type type)
+            : base(name)
         {
-            Name = name;
             Type = type;
         }
     }

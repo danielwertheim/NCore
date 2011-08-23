@@ -11,10 +11,10 @@ namespace NCore.Tests.UnitTests.Validation
         private const string ParamName = "test";
 
         [Test]
-        public void Param_IsNotEmpty_WhenEmptyGuid_ThrowsArgumentException()
+        public void IsNotEmpty_WhenEmptyGuid_ThrowsArgumentException()
         {
             var ex = Assert.Throws<ArgumentException>(
-                () => Ensure.Param(Guid.Empty, ParamName).IsNotEmpty());
+                () => Ensure.That(Guid.Empty, ParamName).IsNotEmpty());
 
             Assert.AreEqual(ParamName, ex.ParamName);
             Assert.AreEqual(
@@ -23,11 +23,11 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void Param_IsNotEmpty_WhenNonEmptyGuid_ReturnsPassedGuid()
+        public void IsNotEmpty_WhenNonEmptyGuid_ReturnsPassedGuid()
         {
             var guid = Guid.NewGuid();
 
-            var returnedValue = Ensure.Param(guid, ParamName).IsNotEmpty();
+            var returnedValue = Ensure.That(guid, ParamName).IsNotEmpty();
 
             Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(guid, returnedValue.Value);

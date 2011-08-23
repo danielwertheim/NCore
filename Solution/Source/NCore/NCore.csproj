@@ -51,7 +51,7 @@
     <Compile Include="Reflections\TypeExtensions.cs" />
     <Compile Include="Validation\Ensure.cs" />
     <Compile Include="Validation\EnsureCollectionExtensions.cs" />
-    <Compile Include="Validation\EnsureExpressionExtensions.cs" />
+    <Compile Include="Validation\EnsureBoolExtensions.cs" />
     <Compile Include="Resources\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -64,7 +64,6 @@
     <Compile Include="Validation\EnsureStringExtensions.cs" />
     <Compile Include="Validation\EnsureTypeExtensions.cs" />
     <Compile Include="Validation\ExceptionFactory.cs" />
-    <Compile Include="Validation\ExpressionParam.cs" />
     <Compile Include="Validation\Param.cs" />
     <Compile Include="Validation\TypeParam.cs" />
   </ItemGroup>

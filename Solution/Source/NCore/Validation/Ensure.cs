@@ -1,22 +1,28 @@
 using System;
+using System.Linq.Expressions;
+using NCore.Expressions;
 
 namespace NCore.Validation
 {
     public static class Ensure
     {
-        public static Param<T> Param<T>(T value, string name)
+        public static Param<T> That<T>(T value, string name = Param.DefaultName)
         {
             return new Param<T>(name, value);
         }
 
-        public static ExpressionParam Param(Func<bool> expression, string name)
+        public static Param<T> That<T>(Expression<Func<T>> expression)
         {
-            return new ExpressionParam(name, expression);
+            var memberExpression = expression.GetRightMostMember();
+
+            return new Param<T>(
+                memberExpression.ToPath(),
+                expression.Compile().Invoke());
         }
 
-        public static TypeParam ParamTypeFor<T>(T value, string name)
+        public static TypeParam ThatTypeFor<T>(T value, string name = Param.DefaultName)
         {
-            return new TypeParam(value.GetType(), name);
+            return new TypeParam(name, value.GetType());
         }
     }
 }

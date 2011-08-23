@@ -6,15 +6,15 @@ using NUnit.Framework;
 namespace NCore.Tests.UnitTests.Validation
 {
     [TestFixture]
-    public class EnsureExpressionParamTests : UnitTestBase
+    public class EnsureBoolParamTests : UnitTestBase
     {
         private const string ParamName = "test";
 
         [Test]
-        public void Param_IsTrue_WhenFalseExpression_ThrowsArgumentException()
+        public void IsTrue_WhenFalseExpression_ThrowsArgumentException()
         {
             var ex = Assert.Throws<ArgumentException>(
-                () => Ensure.Param(() => false, ParamName).IsTrue());
+                () => Ensure.That(false, ParamName).IsTrue());
 
             Assert.AreEqual(ParamName, ex.ParamName);
             Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsTrueFor
@@ -23,19 +23,19 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void Param_IsTrue_WhenTrueExpression_ReturnsPassedValue()
+        public void IsTrue_WhenTrueExpression_ReturnsPassedValue()
         {
-            var returnedValue = Ensure.Param(() => true, ParamName).IsTrue();
+            var returnedValue = Ensure.That(true, ParamName).IsTrue();
 
             Assert.AreEqual(ParamName, returnedValue.Name);
-            Assert.IsTrue(returnedValue.Expression());
+            Assert.IsTrue(returnedValue.Value);
         }
 
         [Test]
-        public void Param_IsFalse_WhenTrueExpression_ThrowsArgumentException()
+        public void IsFalse_WhenTrueExpression_ThrowsArgumentException()
         {
             var ex = Assert.Throws<ArgumentException>(
-                () => Ensure.Param(() => true, ParamName).IsFalse());
+                () => Ensure.That(true, ParamName).IsFalse());
 
             Assert.AreEqual(ParamName, ex.ParamName);
             Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsFalseFor
@@ -44,12 +44,12 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void Param_IsFalse_WhenFalseExpression_ReturnsPassedValue()
+        public void IsFalse_WhenFalseExpression_ReturnsPassedValue()
         {
-            var returnedValue = Ensure.Param(() => false, ParamName).IsFalse();
+            var returnedValue = Ensure.That(false, ParamName).IsFalse();
 
             Assert.AreEqual(ParamName, returnedValue.Name);
-            Assert.IsFalse(returnedValue.Expression());
+            Assert.IsFalse(returnedValue.Value);
         }
     }
 }

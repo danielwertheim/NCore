@@ -19,10 +19,10 @@ namespace NCore.Tests.UnitTests.Validation
         private static readonly Type NonBogusType = typeof(NonBogus);
 
         [Test]
-        public void Param_IsTypeOf_WhenNotTypeOf_ThrowsArgumentException()
+        public void IsTypeOf_WhenNotTypeOf_ThrowsArgumentException()
         {
             var ex = Assert.Throws<ArgumentException>(
-                () => Ensure.ParamTypeFor(new Bogus(), ParamName).IsOfType(NonBogusType));
+                () => Ensure.ThatTypeFor(new Bogus(), ParamName).IsOfType(NonBogusType));
 
             Assert.AreEqual(ParamName, ex.ParamName);
             Assert.AreEqual(ExceptionMessages.EnsureExtensions_IsOfType.Inject(BogusType.FullName)
@@ -31,9 +31,9 @@ namespace NCore.Tests.UnitTests.Validation
         }
 
         [Test]
-        public void Param_IsOfType_WhenIsCorrectType_Expect()
+        public void IsOfType_WhenIsCorrectType_Expect()
         {
-            var returnedValue = Ensure.ParamTypeFor(new Bogus(), ParamName).IsOfType(BogusType);
+            var returnedValue = Ensure.ThatTypeFor(new Bogus(), ParamName).IsOfType(BogusType);
 
             Assert.AreEqual(ParamName, returnedValue.Name);
             Assert.AreEqual(BogusType, returnedValue.Type);
