@@ -1,11 +1,4 @@
-Versioning is using odd-even versioning.
-
-vA.B.C.D
-A:      Major changes
-B-Odd:  Unstable dev with ongoing implementation of new features and minor changes.
-B-Even: Stable release with new features and minor changes.
-C:      Bug fixes
-D:      Build number.
+Semantic versioning is used (http://semver.org/)
 
 v0.1.0
 New			Client profile 4.0.
@@ -13,3 +6,6 @@ New			System.Linq.Expressions extensions to extract Path and right most member.
 New			Validation of parameters via Validation namespace and Ensure class.
 New			Centralized string conversion.
 New			Reflections.TypeExtensions for determination of types and handling of enumerable element types.
+
+v0.2.0
+Removed		Removed Validation and instead created Ensure.That library (nuget.org/List/Packages/Ensure.That).
