@@ -66,7 +66,7 @@
     <Compile Include="UnitTestBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\NCore\NCore.csproj">
+    <ProjectReference Include="..\..\Projects\NCore\NCore.csproj">
       <Project>{A06F6281-B536-4721-9EED-29132FA88B99}</Project>
       <Name>NCore</Name>
     </ProjectReference>

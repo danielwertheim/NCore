@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{15644CA0-3847-4FBB-A631-F42A6D68D0EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCore", "Source\NCore\NCore.csproj", "{A06F6281-B536-4721-9EED-29132FA88B99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCore", "Projects\NCore\NCore.csproj", "{A06F6281-B536-4721-9EED-29132FA88B99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCore.Tests.UnitTests", "Tests\NCore.Tests.UnitTests\NCore.Tests.UnitTests.csproj", "{44D8AB84-86EC-4EB4-9456-3CA3F90263E9}"
 EndProject
