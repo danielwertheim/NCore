@@ -41,6 +41,9 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Collections\DictionaryExtensions.cs" />
+    <Compile Include="Cryptography\Crc32HashService.cs" />
+    <Compile Include="Cryptography\Crc32Algorithm.cs" />
+    <Compile Include="Cryptography\IHashService.cs" />
     <Compile Include="DefaultFormatting.cs" />
     <Compile Include="Expressions\ExpressionExtensions.cs" />
     <Compile Include="IFormatting.cs" />
