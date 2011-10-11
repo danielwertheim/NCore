@@ -5,8 +5,56 @@ using NUnit.Framework;
 namespace NCore.Tests.UnitTests.Reflections
 {
     [TestFixture]
-    public class TypeExtensionsIsFubuTypeTests : UnitTestBase
+    public class TypeExtensionsIsFooTypeTests : UnitTestBase
     {
+        [Test,
+        TestCase(typeof(int)),
+        TestCase(typeof(long)),
+        TestCase(typeof(byte)),
+        TestCase(typeof(short))]
+        public void IsIntegerNumberType_WhenIntegerType_ReturnsTrue(Type type)
+        {
+            Assert.IsTrue(type.IsIntegerNumberType());
+        }
+
+        [Test,
+        TestCase(typeof(decimal)),
+        TestCase(typeof(double)),
+        TestCase(typeof(Single)),
+        TestCase(typeof(float))]
+        public void IsFractalNumberType_WhenIntegerType_ReturnsTrue(Type type)
+        {
+            Assert.IsTrue(type.IsFractalNumberType());
+        }
+
+        [Test,
+        TestCase(typeof(int)),
+        TestCase(typeof(long)),
+        TestCase(typeof(byte)),
+        TestCase(typeof(short)),
+        TestCase(typeof(decimal)),
+        TestCase(typeof(double)),
+        TestCase(typeof(Single)),
+        TestCase(typeof(float))]
+        public void IsNumericType_WhenNumericType_ReturnsTrue(Type type)
+        {
+            Assert.IsTrue(type.IsNumericType());
+        }
+
+        [Test,
+        TestCase(typeof(int?)),
+        TestCase(typeof(long?)),
+        TestCase(typeof(byte?)),
+        TestCase(typeof(short?)),
+        TestCase(typeof(decimal?)),
+        TestCase(typeof(double?)),
+        TestCase(typeof(Single?)),
+        TestCase(typeof(float?))]
+        public void IsNumericType_WhenNullableNumericType_ReturnsTrue(Type type)
+        {
+            Assert.IsTrue(type.IsNumericType());
+        }
+
         [Test]
         public void IsStringType_WhenStringType_ReturnsTrue()
         {

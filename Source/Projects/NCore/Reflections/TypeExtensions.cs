@@ -51,6 +51,25 @@ namespace NCore.Reflections
             return (type.IsValueType || type.IsPrimitive) || type.IsEnum || ExtraPrimitiveTypes.Contains(type);
         }
 
+        public static bool IsNumericType(this Type type)
+        {
+            return
+                IsIntegerNumberType(type) ||
+                IsFractalNumberType(type);
+        }
+
+        public static bool IsIntegerNumberType(this Type type)
+        {
+            return
+                IsAnyIntType(type) || IsAnyLongType(type) || IsAnyShortType(type) || IsAnyByteType(type);
+        }
+
+        public static bool IsFractalNumberType(this Type type)
+        {
+            return
+                IsAnyDoubleType(type) || IsAnyDecimalType(type) || IsAnySingleType(type) || IsAnyFloatType(type);
+        }
+
         public static bool IsEnumerableType(this Type type)
         {
             return !type.IsSimpleType()
@@ -94,9 +113,19 @@ namespace NCore.Reflections
             return t == DateTimeType;
         }
 
+        public static bool IsAnyDateTimeType(this Type t)
+        {
+            return IsDateTimeType(t) || IsNullableDateTimeType(t);
+        }
+
         public static bool IsBoolType(this Type t)
         {
             return t == BoolType;
+        }
+
+        public static bool IsAnyBoolType(this Type t)
+        {
+            return IsBoolType(t) || IsNullableBoolType(t);
         }
 
         public static bool IsDecimalType(this Type t)
@@ -104,9 +133,19 @@ namespace NCore.Reflections
             return t == DecimalType;
         }
 
+        public static bool IsAnyDecimalType(this Type t)
+        {
+            return IsDecimalType(t) || IsNullableDecimalType(t);
+        }
+
         public static bool IsSingleType(this Type t)
         {
             return t == SingleType;
+        }
+
+        public static bool IsAnySingleType(this Type t)
+        {
+            return IsSingleType(t) || IsNullableSingleType(t);
         }
 
         public static bool IsFloatType(this Type t)
@@ -114,9 +153,19 @@ namespace NCore.Reflections
             return t == FloatType;
         }
 
+        public static bool IsAnyFloatType(this Type t)
+        {
+            return IsFloatType(t) || IsNullableFloatType(t);
+        }
+
         public static bool IsDoubleType(this Type t)
         {
             return t == DoubleType;
+        }
+
+        public static bool IsAnyDoubleType(this Type t)
+        {
+            return IsDoubleType(t) || IsNullableDoubleType(t);
         }
 
         public static bool IsLongType(this Type t)
@@ -124,9 +173,19 @@ namespace NCore.Reflections
             return t == LongType;
         }
 
+        public static bool IsAnyLongType(this Type t)
+        {
+            return IsLongType(t) || IsNullableLongType(t);
+        }
+
         public static bool IsGuidType(this Type t)
         {
             return t == GuidType;
+        }
+
+        public static bool IsAnyGuidType(this Type t)
+        {
+            return IsGuidType(t) || IsNullableGuidType(t);
         }
 
         public static bool IsIntType(this Type t)
@@ -134,9 +193,19 @@ namespace NCore.Reflections
             return t == IntType;
         }
 
+        public static bool IsAnyIntType(this Type t)
+        {
+            return IsIntType(t) || IsNullableIntType(t);
+        }
+
         public static bool IsByteType(this Type t)
         {
             return t == ByteType;
+        }
+
+        public static bool IsAnyByteType(this Type t)
+        {
+            return IsByteType(t) || IsNullableByteType(t);
         }
 
         public static bool IsShortType(this Type t)
@@ -144,14 +213,29 @@ namespace NCore.Reflections
             return t == ShortType;
         }
 
+        public static bool IsAnyShortType(this Type t)
+        {
+            return IsShortType(t) || IsNullableShortType(t);
+        }
+
         public static bool IsCharType(this Type t)
         {
             return t == CharType;
         }
 
+        public static bool IsAnyCharType(this Type t)
+        {
+            return IsCharType(t) || IsNullableCharType(t);
+        }
+
         public static bool IsEnumType(this Type t)
         {
             return (t.BaseType == EnumType) || t.IsEnum;
+        }
+
+        public static bool IsAnyEnumType(this Type t)
+        {
+            return IsEnumType(t) || IsNullableEnumType(t);
         }
 
         public static bool IsNullableValueType(this Type t)
