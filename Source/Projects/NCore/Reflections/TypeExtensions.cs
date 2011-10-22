@@ -74,8 +74,8 @@ namespace NCore.Reflections
         {
             return !type.IsSimpleType()
                    && EnumerableType.IsAssignableFrom(type)
-                   && !DictionaryType.IsAssignableFrom(type)
-                   && (type.IsGenericType || type.HasElementType);
+                   && !DictionaryType.IsAssignableFrom(type);
+            //&& (type.IsGenericType || type.HasElementType);
         }
 
         public static bool IsEnumerableBytesType(this Type type)
