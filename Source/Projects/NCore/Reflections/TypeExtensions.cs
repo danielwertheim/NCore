@@ -73,8 +73,8 @@ namespace NCore.Reflections
         public static bool IsEnumerableType(this Type type)
         {
             return !type.IsSimpleType()
-                   && EnumerableType.IsAssignableFrom(type)
-                   && !DictionaryType.IsAssignableFrom(type);
+                   && EnumerableType.IsAssignableFrom(type);
+            //&& !DictionaryType.IsAssignableFrom(type);
             //&& (type.IsGenericType || type.HasElementType);
         }
 
