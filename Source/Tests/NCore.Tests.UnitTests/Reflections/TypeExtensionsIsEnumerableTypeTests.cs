@@ -179,9 +179,15 @@ namespace NCore.Tests.UnitTests.Reflections
         }
 
         [Test]
-        public void IsEnumerableType_WhenIDictionary_ReturnsFalse()
+        public void IsEnumerableType_WhenIDictionary_ReturnsTrue()
         {
-            Assert.IsFalse(typeof(IDictionary).IsEnumerableType());
+            Assert.IsTrue(typeof(IDictionary).IsEnumerableType());
+        }
+
+        [Test]
+        public void IsEnumerableType_WhenIDictionaryOfT_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(IDictionary<,>).IsEnumerableType());
         }
 
         private class DummyClass
