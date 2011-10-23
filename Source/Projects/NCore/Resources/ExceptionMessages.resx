@@ -141,8 +141,8 @@
   <data name="StringConverter_AsString_TypeOfValueIsNotSupported" xml:space="preserve">
     <value>The value being retrieved is not of supported type. It must either be a string or the type needs to implement IConvertible or if Nullable&lt;T&gt;, then T needs to implement it.</value>
   </data>
-  <data name="TypeExtensions_ExtractGenericType" xml:space="preserve">
-    <value>Supported generic collections on model are: implementations of either IEnumerable&lt;T&gt; or IList&lt;T&gt;.</value>
+  <data name="TypeExtensions_ExtractEnumerableGenericType" xml:space="preserve">
+    <value>When extracting generic type from collections, a maximum of two generic arguments are supported, which then are supposed to belong to KeyValuePair&lt;TKey, TValue&gt;.</value>
   </data>
   <data name="ExpressionUtils_GetRightMostMember_NoMemberFound" xml:space="preserve">
     <value>No MemberExpression found in expression: '{0}'.</value>
