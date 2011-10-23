@@ -8,7 +8,7 @@ namespace NCore.Reflections
     public static class TypeExtensions
     {
         private static readonly Type EnumerableType = typeof(IEnumerable);
-        private static readonly Type DictionaryType = typeof(IDictionary);
+        private static readonly Type KeyValuePairType = typeof(KeyValuePair<,>);
         private static readonly Type EnumType = typeof(Enum);
 
         private static readonly Type StringType = typeof(string);
@@ -90,15 +90,19 @@ namespace NCore.Reflections
 
         public static Type GetEnumerableElementType(this Type type)
         {
-            return type.IsGenericType ? ExtractGenericType(type) : type.GetElementType();
+            return type.IsGenericType ? ExtractEnumerableGenericType(type) : type.GetElementType();
         }
 
-        private static Type ExtractGenericType(Type type)
+        private static Type ExtractEnumerableGenericType(Type type)
         {
             var generics = type.GetGenericArguments();
 
-            if (generics.Length != 1)
-                throw new NCoreException(ExceptionMessages.TypeExtensions_ExtractGenericType);
+            if (generics.Length > 2)
+                throw new NCoreException(ExceptionMessages.TypeExtensions_ExtractEnumerableGenericType);
+
+            if (generics.Length == 2)
+                //return type.GetInterface(CollectionType.Name).GetGenericArguments()[0];
+                return KeyValuePairType.MakeGenericType(generics);
 
             return generics[0];
         }

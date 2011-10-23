@@ -66,6 +66,22 @@ namespace NCore.Tests.UnitTests.Reflections
         }
 
         [Test]
+        public void GetEnumerableElementType_WhenDictionaryOfT_ReturnsElementType()
+        {
+            var elementType = typeof(Dictionary<string, int>).GetEnumerableElementType();
+
+            Assert.AreEqual(typeof(KeyValuePair<string, int>), elementType);
+        }
+
+        [Test]
+        public void GetEnumerableElementType_WhenDictionaryOfComplexT_ReturnsElementType()
+        {
+            var elementType = typeof(Dictionary<string, DummyClass>).GetEnumerableElementType();
+
+            Assert.AreEqual(typeof(KeyValuePair<string, DummyClass>), elementType);
+        }
+
+        [Test]
         public void GetEnumerableElementType_WhenIntArray_ReturnsElementType()
         {
             var elementType = typeof(int[]).GetEnumerableElementType();
@@ -90,7 +106,7 @@ namespace NCore.Tests.UnitTests.Reflections
         }
 
         [Test]
-        public void GetEnumerableElementType_WhenCustomList_ReturnsElementType()
+        public void GetEnumerableElementType_WhenCustomListWithOneGenericArg_ReturnsElementType()
         {
             var elementType = typeof(IValidCustomList<int>).GetEnumerableElementType();
 
@@ -98,11 +114,19 @@ namespace NCore.Tests.UnitTests.Reflections
         }
 
         [Test]
-        public void GetEnumerableElementType_WhenMoreThanOneGenericArg_ThrowsPineConeException()
+        public void GetEnumerableElementType_WhenCustomListWithTwoGenericArgs_ReturnsElementType()
         {
-            var ex = Assert.Throws<NCoreException>(() => typeof(IInvalidCustomList<int, string>).GetEnumerableElementType());
+            var elementType = typeof(IValidCustomList<int, string>).GetEnumerableElementType();
 
-            Assert.AreEqual(ExceptionMessages.TypeExtensions_ExtractGenericType, ex.Message);
+            Assert.AreEqual(typeof(KeyValuePair<int, string>), elementType);
+        }
+
+        [Test]
+        public void GetEnumerableElementType_WhenMoreThanTwoGenericArgs_ThrowsPineConeException()
+        {
+            var ex = Assert.Throws<NCoreException>(() => typeof(IInvalidCustomList<int, string, bool>).GetEnumerableElementType());
+
+            Assert.AreEqual(ExceptionMessages.TypeExtensions_ExtractEnumerableGenericType, ex.Message);
         }
 
         private class DummyClass
@@ -112,7 +136,10 @@ namespace NCore.Tests.UnitTests.Reflections
         private interface IValidCustomList<out T1> : IEnumerable<T1>
         { }
 
-        private interface IInvalidCustomList<out T1, T2> : IEnumerable<T1>
+        private interface IValidCustomList<out T1, T2> : IEnumerable<T1>
+        { }
+
+        private interface IInvalidCustomList<out T1, T2, T3> : IEnumerable<T1>
         { }
     }
 }
