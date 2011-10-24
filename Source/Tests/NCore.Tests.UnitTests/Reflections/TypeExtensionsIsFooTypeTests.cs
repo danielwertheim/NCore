@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NCore.Reflections;
 using NUnit.Framework;
 
@@ -7,6 +8,14 @@ namespace NCore.Tests.UnitTests.Reflections
     [TestFixture]
     public class TypeExtensionsIsFooTypeTests : UnitTestBase
     {
+        [Test,
+        TestCase(typeof(KeyValuePair<,>)),
+        TestCase(typeof(KeyValuePair<int,int>))]
+        public void IsKeyValuePair_WhenKeyValuePair_ReturnsTrue(Type type)
+        {
+            Assert.IsTrue(type.IsKeyValuePairType());
+        }
+
         [Test,
         TestCase(typeof(int)),
         TestCase(typeof(long)),

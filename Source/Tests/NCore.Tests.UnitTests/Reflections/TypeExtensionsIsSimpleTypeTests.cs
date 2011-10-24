@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using NCore.Reflections;
 using NUnit.Framework;
 
@@ -8,6 +9,18 @@ namespace NCore.Tests.UnitTests.Reflections
     [TestFixture]
     public class TypeExtensionsIsSimpleTypeTests : UnitTestBase
     {
+        [Test]
+        public void IsSimpleType_WhenKeyValuePair_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(KeyValuePair<int, int>).IsSimpleType());
+        }
+
+        [Test]
+        public void IsSimpleType_WhenKeyValuePairDefinition_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(KeyValuePair<,>).IsSimpleType());
+        }
+
         [Test]
         public void IsSimpleType_WhenClass_ReturnsFalse()
         {

@@ -51,6 +51,11 @@ namespace NCore.Reflections
             return (type.IsValueType || type.IsPrimitive) || type.IsEnum || ExtraPrimitiveTypes.Contains(type);
         }
 
+        public static bool IsKeyValuePairType(this Type type)
+        {
+            return type.IsSimpleType() && type.IsGenericType && type.GetGenericTypeDefinition() == KeyValuePairType;
+        }
+
         public static bool IsNumericType(this Type type)
         {
             return
@@ -102,7 +107,7 @@ namespace NCore.Reflections
 
             if (generics.Length == 2)
                 //return type.GetInterface(CollectionType.Name).GetGenericArguments()[0];
-                return KeyValuePairType.MakeGenericType(generics);
+                return KeyValuePairType.MakeGenericType(generics[0], generics[1]);
 
             return generics[0];
         }
