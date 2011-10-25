@@ -48,7 +48,7 @@ namespace NCore.Reflections
 
         public static bool IsSimpleType(this Type type)
         {
-            return (type.IsValueType || type.IsPrimitive) || type.IsEnum || ExtraPrimitiveTypes.Contains(type);
+            return type.IsPrimitive || type.IsEnum || ExtraPrimitiveTypes.Contains(type);
         }
 
         public static bool IsKeyValuePairType(this Type type)

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using NCore.Reflections;
 using NUnit.Framework;
 
@@ -8,60 +7,148 @@ namespace NCore.Tests.UnitTests.Reflections
     [TestFixture]
     public class TypeExtensionsIsFooTypeTests : UnitTestBase
     {
-        [Test,
-        TestCase(typeof(KeyValuePair<,>)),
-        TestCase(typeof(KeyValuePair<int,int>))]
-        public void IsKeyValuePair_WhenKeyValuePair_ReturnsTrue(Type type)
+        [Test]
+        public void IsIntegerNumberType_WhenIntType_ReturnsTrue()
         {
-            Assert.IsTrue(type.IsKeyValuePairType());
+            Assert.IsTrue(typeof(int).IsIntegerNumberType());
         }
 
-        [Test,
-        TestCase(typeof(int)),
-        TestCase(typeof(long)),
-        TestCase(typeof(byte)),
-        TestCase(typeof(short))]
-        public void IsIntegerNumberType_WhenIntegerType_ReturnsTrue(Type type)
+        [Test]
+        public void IsIntegerNumberType_WhenLongType_ReturnsTrue()
         {
-            Assert.IsTrue(type.IsIntegerNumberType());
+            Assert.IsTrue(typeof(long).IsIntegerNumberType());
         }
 
-        [Test,
-        TestCase(typeof(decimal)),
-        TestCase(typeof(double)),
-        TestCase(typeof(Single)),
-        TestCase(typeof(float))]
-        public void IsFractalNumberType_WhenIntegerType_ReturnsTrue(Type type)
+        [Test]
+        public void IsIntegerNumberType_WhenByteType_ReturnsTrue()
         {
-            Assert.IsTrue(type.IsFractalNumberType());
+            Assert.IsTrue(typeof(byte).IsIntegerNumberType());
         }
 
-        [Test,
-        TestCase(typeof(int)),
-        TestCase(typeof(long)),
-        TestCase(typeof(byte)),
-        TestCase(typeof(short)),
-        TestCase(typeof(decimal)),
-        TestCase(typeof(double)),
-        TestCase(typeof(Single)),
-        TestCase(typeof(float))]
-        public void IsNumericType_WhenNumericType_ReturnsTrue(Type type)
+        [Test]
+        public void IsIntegerNumberType_WhenShortType_ReturnsTrue()
         {
-            Assert.IsTrue(type.IsNumericType());
+            Assert.IsTrue(typeof(short).IsIntegerNumberType());
         }
 
-        [Test,
-        TestCase(typeof(int?)),
-        TestCase(typeof(long?)),
-        TestCase(typeof(byte?)),
-        TestCase(typeof(short?)),
-        TestCase(typeof(decimal?)),
-        TestCase(typeof(double?)),
-        TestCase(typeof(Single?)),
-        TestCase(typeof(float?))]
-        public void IsNumericType_WhenNullableNumericType_ReturnsTrue(Type type)
+        [Test]
+        public void IsFractalNumberType_WhenDecimalType_ReturnsTrue()
         {
-            Assert.IsTrue(type.IsNumericType());
+            Assert.IsTrue(typeof(decimal).IsFractalNumberType());
+        }
+
+        [Test]
+        public void IsFractalNumberType_WhenDoubleType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(double).IsFractalNumberType());
+        }
+
+        [Test]
+        public void IsFractalNumberType_WhenSingleType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(Single).IsFractalNumberType());
+        }
+
+        [Test]
+        public void IsFractalNumberType_WhenFloatType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(float).IsFractalNumberType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenIntType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(int).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenLongType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(long).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenByteType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(byte).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenShortType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(short).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenDecimalType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(decimal).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenDoubleType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(double).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenSingleType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(Single).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenFloatType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(float).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenNullableIntType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(int?).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenNullableLongType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(long?).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenNullableByteType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(byte?).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenNullableShortType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(short?).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenNullableDecimalType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(decimal?).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenNullableDoubleType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(double?).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenNullableSingleType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(Single?).IsNumericType());
+        }
+
+        [Test]
+        public void IsNumericType_WhenNullableFloatType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(float?).IsNumericType());
         }
 
         [Test]
