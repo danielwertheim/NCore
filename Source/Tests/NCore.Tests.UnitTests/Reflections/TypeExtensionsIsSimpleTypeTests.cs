@@ -12,13 +12,13 @@ namespace NCore.Tests.UnitTests.Reflections
         [Test]
         public void IsSimpleType_WhenKeyValuePair_ReturnsTrue()
         {
-            Assert.IsTrue(typeof(KeyValuePair<int, int>).IsSimpleType());
+            Assert.IsFalse(typeof(KeyValuePair<int, int>).IsSimpleType());
         }
 
         [Test]
         public void IsSimpleType_WhenKeyValuePairDefinition_ReturnsTrue()
         {
-            Assert.IsTrue(typeof(KeyValuePair<,>).IsSimpleType());
+            Assert.IsFalse(typeof(KeyValuePair<,>).IsSimpleType());
         }
 
         [Test]
