@@ -8,6 +8,7 @@ namespace NCore.Reflections
     public static class TypeExtensions
     {
         private static readonly Type EnumerableType = typeof(IEnumerable);
+        private static readonly Type DictionaryType = typeof (IDictionary);
         private static readonly Type KeyValuePairType = typeof(KeyValuePair<,>);
         private static readonly Type EnumType = typeof(Enum);
 
@@ -79,8 +80,6 @@ namespace NCore.Reflections
         {
             return !type.IsSimpleType()
                    && EnumerableType.IsAssignableFrom(type);
-            //&& !DictionaryType.IsAssignableFrom(type);
-            //&& (type.IsGenericType || type.HasElementType);
         }
 
         public static bool IsEnumerableBytesType(this Type type)
@@ -102,14 +101,13 @@ namespace NCore.Reflections
         {
             var generics = type.GetGenericArguments();
 
-            if (generics.Length > 2)
-                throw new NCoreException(ExceptionMessages.TypeExtensions_ExtractEnumerableGenericType);
+            if (generics.Length == 1)
+                return generics[0];
 
-            if (generics.Length == 2)
-                //return type.GetInterface(CollectionType.Name).GetGenericArguments()[0];
-                return KeyValuePairType.MakeGenericType(generics[0], generics[1]);
+            if (generics.Length == 2 && DictionaryType.IsAssignableFrom(type))
+                return generics[1];
 
-            return generics[0];
+            throw new NCoreException(ExceptionMessages.TypeExtensions_ExtractEnumerableGenericType);
         }
 
         public static bool IsStringType(this Type t)

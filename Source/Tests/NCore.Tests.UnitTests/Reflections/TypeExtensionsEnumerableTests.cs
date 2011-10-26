@@ -70,7 +70,7 @@ namespace NCore.Tests.UnitTests.Reflections
         {
             var elementType = typeof(Dictionary<string, int>).GetEnumerableElementType();
 
-            Assert.AreEqual(typeof(KeyValuePair<string, int>), elementType);
+            Assert.AreEqual(typeof(int), elementType);
         }
 
         [Test]
@@ -78,7 +78,7 @@ namespace NCore.Tests.UnitTests.Reflections
         {
             var elementType = typeof(Dictionary<string, DummyClass>).GetEnumerableElementType();
 
-            Assert.AreEqual(typeof(KeyValuePair<string, DummyClass>), elementType);
+            Assert.AreEqual(typeof(DummyClass), elementType);
         }
 
         [Test]
@@ -116,9 +116,9 @@ namespace NCore.Tests.UnitTests.Reflections
         [Test]
         public void GetEnumerableElementType_WhenCustomListWithTwoGenericArgs_ReturnsElementType()
         {
-            var elementType = typeof(IValidCustomList<int, string>).GetEnumerableElementType();
+            var ex = Assert.Throws<NCoreException>(() => typeof(IInvalidCustomList<int, string>).GetEnumerableElementType());
 
-            Assert.AreEqual(typeof(KeyValuePair<int, string>), elementType);
+            Assert.AreEqual(ExceptionMessages.TypeExtensions_ExtractEnumerableGenericType, ex.Message);
         }
 
         [Test]
@@ -136,7 +136,7 @@ namespace NCore.Tests.UnitTests.Reflections
         private interface IValidCustomList<out T1> : IEnumerable<T1>
         { }
 
-        private interface IValidCustomList<out T1, T2> : IEnumerable<T1>
+        private interface IInvalidCustomList<out T1, T2> : IEnumerable<T1>
         { }
 
         private interface IInvalidCustomList<out T1, T2, T3> : IEnumerable<T1>
