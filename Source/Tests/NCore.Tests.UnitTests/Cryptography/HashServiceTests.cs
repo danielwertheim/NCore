@@ -97,5 +97,36 @@ namespace NCore.Tests.UnitTests.Cryptography
 
             Assert.AreEqual("443d72ec", hash);
         }
+
+        [Test]
+        public void GenerateHash_When4096Chars_Returns8Chars()
+        {
+            var value = new string('a', 4096);
+            
+            var hash = _hasher.GenerateHash(value);
+
+            Assert.AreEqual("9c99dc73", hash);
+        }
+
+        [Test]
+        public void GenerateHash_WhenTwoIdenticalStrings_ReturnsSameHash()
+        {
+            var hash1 = _hasher.GenerateHash("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+            var hash2 = _hasher.GenerateHash("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+
+            Assert.IsNotNullOrEmpty(hash1);
+            Assert.AreEqual(hash1, hash2);
+        }
+
+        [Test]
+        public void GenerateHash_WhenTwoStringsDifferentInCasing_DoesNotReturnSameHash()
+        {
+            var hash1 = _hasher.GenerateHash("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+            var hash2 = _hasher.GenerateHash("Lorem ipsum dolor sit AMET, consectetur adipiscing elit.");
+
+            Assert.IsNotNullOrEmpty(hash1);
+            Assert.IsNotNullOrEmpty(hash2);
+            Assert.AreNotEqual(hash1, hash2);
+        }
     }
 }
