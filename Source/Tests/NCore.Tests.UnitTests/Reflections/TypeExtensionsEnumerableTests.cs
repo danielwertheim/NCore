@@ -70,7 +70,7 @@ namespace NCore.Tests.UnitTests.Reflections
         {
             var elementType = typeof(Dictionary<string, int>).GetEnumerableElementType();
 
-            Assert.AreEqual(typeof(int), elementType);
+            Assert.AreEqual(typeof(KeyValuePair<string, int>), elementType);
         }
 
         [Test]
@@ -78,7 +78,7 @@ namespace NCore.Tests.UnitTests.Reflections
         {
             var elementType = typeof(Dictionary<string, DummyClass>).GetEnumerableElementType();
 
-            Assert.AreEqual(typeof(DummyClass), elementType);
+            Assert.AreEqual(typeof(KeyValuePair<string, DummyClass>), elementType);
         }
 
         [Test]

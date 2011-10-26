@@ -105,7 +105,7 @@ namespace NCore.Reflections
                 return generics[0];
 
             if (generics.Length == 2 && DictionaryType.IsAssignableFrom(type))
-                return generics[1];
+                return KeyValuePairType.MakeGenericType(generics[0], generics[1]);
 
             throw new NCoreException(ExceptionMessages.TypeExtensions_ExtractEnumerableGenericType);
         }
