@@ -8,51 +8,51 @@ namespace NCore.Tests.UnitTests.Reflections
     public class TypeExtensionsIsFooTypeTests : UnitTestBase
     {
         [Test]
-        public void IsIntegerNumberType_WhenIntType_ReturnsTrue()
+        public void IsAnyIntegerNumberType_WhenIntType_ReturnsTrue()
         {
-            Assert.IsTrue(typeof(int).IsIntegerNumberType());
+            Assert.IsTrue(typeof(int).IsAnyIntegerNumberType());
         }
 
         [Test]
-        public void IsIntegerNumberType_WhenLongType_ReturnsTrue()
+        public void IsAnyIntegerNumberType_WhenLongType_ReturnsTrue()
         {
-            Assert.IsTrue(typeof(long).IsIntegerNumberType());
+            Assert.IsTrue(typeof(long).IsAnyIntegerNumberType());
         }
 
         [Test]
-        public void IsIntegerNumberType_WhenByteType_ReturnsTrue()
+        public void IsAnyIntegerNumberType_WhenByteType_ReturnsTrue()
         {
-            Assert.IsTrue(typeof(byte).IsIntegerNumberType());
+            Assert.IsTrue(typeof(byte).IsAnyIntegerNumberType());
         }
 
         [Test]
-        public void IsIntegerNumberType_WhenShortType_ReturnsTrue()
+        public void IsAnyIntegerNumberType_WhenShortType_ReturnsTrue()
         {
-            Assert.IsTrue(typeof(short).IsIntegerNumberType());
+            Assert.IsTrue(typeof(short).IsAnyIntegerNumberType());
         }
 
         [Test]
-        public void IsFractalNumberType_WhenDecimalType_ReturnsTrue()
+        public void IsAnyFractalNumberType_WhenDecimalType_ReturnsTrue()
         {
-            Assert.IsTrue(typeof(decimal).IsFractalNumberType());
+            Assert.IsTrue(typeof(decimal).IsAnyFractalNumberType());
         }
 
         [Test]
-        public void IsFractalNumberType_WhenDoubleType_ReturnsTrue()
+        public void IsAnyFractalNumberType_WhenDoubleType_ReturnsTrue()
         {
-            Assert.IsTrue(typeof(double).IsFractalNumberType());
+            Assert.IsTrue(typeof(double).IsAnyFractalNumberType());
         }
 
         [Test]
-        public void IsFractalNumberType_WhenSingleType_ReturnsTrue()
+        public void IsAnyFractalNumberType_WhenSingleType_ReturnsTrue()
         {
-            Assert.IsTrue(typeof(Single).IsFractalNumberType());
+            Assert.IsTrue(typeof(Single).IsAnyFractalNumberType());
         }
 
         [Test]
-        public void IsFractalNumberType_WhenFloatType_ReturnsTrue()
+        public void IsAnyFractalNumberType_WhenFloatType_ReturnsTrue()
         {
-            Assert.IsTrue(typeof(float).IsFractalNumberType());
+            Assert.IsTrue(typeof(float).IsAnyFractalNumberType());
         }
 
         [Test]
