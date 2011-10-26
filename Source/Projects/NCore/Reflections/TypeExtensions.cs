@@ -49,7 +49,7 @@ namespace NCore.Reflections
 
         public static bool IsSimpleType(this Type type)
         {
-            return type.IsPrimitive || type.IsEnum || ExtraPrimitiveTypes.Contains(type);
+            return type.IsPrimitive || type.IsEnum || ExtraPrimitiveTypes.Contains(type) || type.IsNullablePrimitiveType();
         }
 
         public static bool IsKeyValuePairType(this Type type)
@@ -60,17 +60,17 @@ namespace NCore.Reflections
         public static bool IsNumericType(this Type type)
         {
             return
-                IsIntegerNumberType(type) ||
-                IsFractalNumberType(type);
+                IsAnyIntegerNumberType(type) ||
+                IsAnyFractalNumberType(type);
         }
 
-        public static bool IsIntegerNumberType(this Type type)
+        public static bool IsAnyIntegerNumberType(this Type type)
         {
             return
                 IsAnyIntType(type) || IsAnyLongType(type) || IsAnyShortType(type) || IsAnyByteType(type);
         }
 
-        public static bool IsFractalNumberType(this Type type)
+        public static bool IsAnyFractalNumberType(this Type type)
         {
             return
                 IsAnyDoubleType(type) || IsAnyDecimalType(type) || IsAnySingleType(type) || IsAnyFloatType(type);
@@ -245,9 +245,9 @@ namespace NCore.Reflections
             return IsEnumType(t) || IsNullableEnumType(t);
         }
 
-        public static bool IsNullableValueType(this Type t)
+        public static bool IsNullablePrimitiveType(this Type t)
         {
-            return (t.IsValueType && t.IsGenericType && t.GetGenericTypeDefinition() == NullableType);
+            return (t.IsValueType && t.IsGenericType && t.GetGenericTypeDefinition() == NullableType && t.GetGenericArguments()[0].IsPrimitive);
         }
 
         public static bool IsNullableDateTimeType(this Type t)

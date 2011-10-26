@@ -8,21 +8,21 @@ namespace NCore.Tests.UnitTests.Reflections
     public class TypeExtensionsIsNullableTypeTests : UnitTestBase
     {
         [Test]
-        public void IsNullableValueType_WhenNullableInt_ReturnsTrue()
+        public void IsNullablePrimitiveType_WhenNullableInt_ReturnsTrue()
         {
-            Assert.IsTrue(typeof(int?).IsNullableValueType());
+            Assert.IsTrue(typeof(int?).IsNullablePrimitiveType());
         }
 
         [Test]
-        public void IsNullableValueType_WhenInt_ReturnsFalse()
+        public void IsNullablePrimitiveType_WhenInt_ReturnsFalse()
         {
-            Assert.IsFalse(typeof(int).IsNullableValueType());
+            Assert.IsFalse(typeof(int).IsNullablePrimitiveType());
         }
 
         [Test]
-        public void IsNullableValueType_WhenString_ReturnsFalse()
+        public void IsNullablePrimitiveType_WhenString_ReturnsFalse()
         {
-            Assert.IsFalse(typeof(string).IsNullableValueType());
+            Assert.IsFalse(typeof(string).IsNullablePrimitiveType());
         }
 
         [Test]
