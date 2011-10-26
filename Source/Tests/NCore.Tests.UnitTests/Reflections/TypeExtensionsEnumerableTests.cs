@@ -66,11 +66,27 @@ namespace NCore.Tests.UnitTests.Reflections
         }
 
         [Test]
+        public void GetEnumerableElementType_WhenIDictionaryOfT_ReturnsElementType()
+        {
+            var elementType = typeof(IDictionary<string, int>).GetEnumerableElementType();
+
+            Assert.AreEqual(typeof(KeyValuePair<string, int>), elementType);
+        }
+
+        [Test]
         public void GetEnumerableElementType_WhenDictionaryOfT_ReturnsElementType()
         {
             var elementType = typeof(Dictionary<string, int>).GetEnumerableElementType();
 
             Assert.AreEqual(typeof(KeyValuePair<string, int>), elementType);
+        }
+
+        [Test]
+        public void GetEnumerableElementType_WhenIDictionaryOfComplexT_ReturnsElementType()
+        {
+            var elementType = typeof(IDictionary<string, DummyClass>).GetEnumerableElementType();
+
+            Assert.AreEqual(typeof(KeyValuePair<string, DummyClass>), elementType);
         }
 
         [Test]
