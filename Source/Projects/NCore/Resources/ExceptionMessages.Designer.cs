@@ -196,7 +196,7 @@ namespace NCore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When extracting generic type from collections, a maximum of two generic arguments are supported, which then are supposed to belong to KeyValuePair&lt;TKey, TValue&gt;..
+        ///   Looks up a localized string similar to When extracting generic element type from enumerables, a maximum of two generic arguments are supported, which then are supposed to belong to KeyValuePair&lt;TKey, TValue&gt;..
         /// </summary>
         internal static string TypeExtensions_ExtractEnumerableGenericType {
             get {
