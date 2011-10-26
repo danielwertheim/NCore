@@ -9,6 +9,7 @@ namespace NCore.Reflections
     {
         private static readonly Type EnumerableType = typeof(IEnumerable);
         private static readonly Type DictionaryType = typeof (IDictionary);
+        private static readonly Type DictionaryOfTType = typeof(IDictionary<,>);
         private static readonly Type KeyValuePairType = typeof(KeyValuePair<,>);
         private static readonly Type EnumType = typeof(Enum);
 
@@ -104,7 +105,7 @@ namespace NCore.Reflections
             if (generics.Length == 1)
                 return generics[0];
 
-            if (generics.Length == 2 && DictionaryType.IsAssignableFrom(type))
+            if (generics.Length == 2 && (DictionaryType.IsAssignableFrom(type) || type.GetGenericTypeDefinition() == DictionaryOfTType))
                 return KeyValuePairType.MakeGenericType(generics[0], generics[1]);
 
             throw new NCoreException(ExceptionMessages.TypeExtensions_ExtractEnumerableGenericType);
