@@ -8,7 +8,7 @@
 	<owners>Daniel Wertheim - @@danielwertheim - http://daniel.wertheim.se</owners>
 	<summary>Core lib with helpers, utils and extensions.</summary>
     <description>
-		Contains helpers, utils and extensions to simplify the daily work.
+		Contains helpers, utils and extensions to simplify some of the daily work.
 	</description>
 	<projectUrl>http://github.com/danielwertheim/ncore</projectUrl>
 	<licenseUrl>http://github.com/danielwertheim/ncore/blob/master/Source/License.txt</licenseUrl>
@@ -16,6 +16,7 @@
 	<tags>core,utils,helpers,extensions</tags>
   </metadata>
   <files>
-      <file src="*.*" target="lib" />
+    <file src="NCore.dll" target="lib" />
+	<file src="License.txt" />
   </files>    
 </package>
