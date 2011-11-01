@@ -19,6 +19,22 @@ namespace NCore
             return string.Format(format, formattingArgs);
         }
 
+        public static string AppendWith(this string value, string appendWith)
+        {
+            if (string.IsNullOrEmpty(value))
+                return value;
+
+            return value + appendWith;
+        }
+
+        public static string PrependWith(this string value, string prependWith)
+        {
+            if (string.IsNullOrEmpty(value))
+                return value;
+
+            return prependWith + value;
+        }
+
         public static IDictionary<string, string> ToKeyValues(this string keyValueString, char pairDelim, char keyValueDelim)
         {
             return keyValueString.Split(new[] { pairDelim }, StringSplitOptions.RemoveEmptyEntries)
