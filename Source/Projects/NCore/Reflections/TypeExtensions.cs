@@ -47,10 +47,11 @@ namespace NCore.Reflections
         private static readonly Type NullableDoubleType = typeof(double?);
 
         private static readonly HashSet<Type> ExtraPrimitiveTypes = new HashSet<Type> { typeof(string), typeof(Guid), typeof(DateTime), typeof(Decimal) };
+        private static readonly HashSet<Type> ExtraPrimitiveNullableTypes = new HashSet<Type> { typeof(Guid?), typeof(DateTime?), typeof(Decimal?) };
 
         public static bool IsSimpleType(this Type type)
         {
-            return type.IsPrimitive || type.IsEnum || ExtraPrimitiveTypes.Contains(type) || type.IsNullablePrimitiveType();
+            return type.IsPrimitive || type.IsEnum || ExtraPrimitiveTypes.Contains(type) || ExtraPrimitiveNullableTypes.Contains(type) || type.IsNullablePrimitiveType();
         }
 
         public static bool IsKeyValuePairType(this Type type)
@@ -248,7 +249,7 @@ namespace NCore.Reflections
 
         public static bool IsNullablePrimitiveType(this Type t)
         {
-            return (t.IsValueType && t.IsGenericType && t.GetGenericTypeDefinition() == NullableType && t.GetGenericArguments()[0].IsPrimitive);
+            return ExtraPrimitiveNullableTypes.Contains(t) || (t.IsValueType && t.IsGenericType && t.GetGenericTypeDefinition() == NullableType && t.GetGenericArguments()[0].IsPrimitive);
         }
 
         public static bool IsNullableDateTimeType(this Type t)
