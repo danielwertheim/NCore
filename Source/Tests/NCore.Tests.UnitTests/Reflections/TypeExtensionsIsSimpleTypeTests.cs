@@ -93,6 +93,66 @@ namespace NCore.Tests.UnitTests.Reflections
             Assert.IsFalse(typeof(IEnumerable).IsSimpleType());
         }
 
+        [Test]
+        public void IsSimpleType_WhenNullableInt_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(int?).IsSimpleType());
+        }
+
+        [Test]
+        public void IsSimpleType_WhenNullableLong_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(long?).IsSimpleType());
+        }
+
+        [Test]
+        public void IsSimpleType_WhenNullableDecimal_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(decimal?).IsSimpleType());
+        }
+
+        [Test]
+        public void IsSimpleType_WhenNullableDouble_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(double?).IsSimpleType());
+        }
+
+        [Test]
+        public void IsSimpleType_WhenNullableSingle_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(Single?).IsSimpleType());
+        }
+
+        [Test]
+        public void IsSimpleType_WhenNullableFloat_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(float?).IsSimpleType());
+        }
+
+        [Test]
+        public void IsSimpleType_WhenNullableByte_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(byte?).IsSimpleType());
+        }
+
+        [Test]
+        public void IsSimpleType_WhenNullableDateTime_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(DateTime?).IsSimpleType());
+        }
+
+        [Test]
+        public void IsSimpleType_WhenNullableBool_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(bool?).IsSimpleType());
+        }
+
+        [Test]
+        public void IsSimpleType_WhenNullableGuid_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(Guid?).IsSimpleType());
+        }
+
         private enum DummyEnum
         {
         }
