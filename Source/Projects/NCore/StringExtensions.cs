@@ -41,5 +41,10 @@ namespace NCore
                 .Select(kv => kv.Split(new[] { keyValueDelim }, StringSplitOptions.RemoveEmptyEntries))
                 .ToDictionary(kv => kv[0], kv => kv[1]);
         }
+
+        public static string ToJoinedString(this IEnumerable<string> strings, string separator, string itemFormat)
+        {
+            return string.Join(separator, strings.Select(s => string.Format(itemFormat, s)));
+        }
     }
 }
