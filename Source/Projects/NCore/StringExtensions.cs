@@ -7,6 +7,14 @@ namespace NCore
 {
     public static class StringExtensions
     {
+        public static string ToStringOrNull(this object obj)
+        {
+            if (obj == null)
+                return null;
+
+            return obj.ToString();
+        }
+
         [DebuggerStepThrough]
         public static string Inject(this string format, params object[] formattingArgs)
         {
@@ -24,7 +32,7 @@ namespace NCore
             if (string.IsNullOrEmpty(value))
                 return value;
 
-            return value + appendWith;
+            return string.Concat(value, appendWith);
         }
 
         public static string PrependWith(this string value, string prependWith)
@@ -32,7 +40,7 @@ namespace NCore
             if (string.IsNullOrEmpty(value))
                 return value;
 
-            return prependWith + value;
+            return string.Concat(prependWith, value);
         }
 
         public static IDictionary<string, string> ToKeyValues(this string keyValueString, char pairDelim, char keyValueDelim)

@@ -30,6 +30,26 @@ namespace NCore.Tests.UnitTests
         }
 
         [Test]
+        public void ToStringOrNull_WhenStringEmpty_ReturnsStringEmpty()
+        {
+            Assert.AreEqual(string.Empty, string.Empty.ToStringOrNull());
+        }
+
+        [Test]
+        public void ToStringOrNull_WhenNull_ReturnsStringEmpty()
+        {
+            Assert.IsNull((null as object).ToStringOrNull());
+        }
+
+        [Test]
+        public void ToStringOrNull_WhenNullInt_ReturnsStringEmpty()
+        {
+            int? v = null;
+
+            Assert.AreEqual(null, v.ToStringOrNull());
+        }
+
+        [Test]
         public void AppendWith_WhenStringHasValue_TextIsPrepended()
         {
             Assert.AreEqual("You did append me.", "You did".AppendWith(" append me."));
