@@ -4,8 +4,9 @@
     <id>NCore</id>    
     <title>NCore</title>
 	<version>0.0.0.0</version>
-	<authors>Daniel Wertheim - @@danielwertheim - http://daniel.wertheim.se</authors>
-	<owners>Daniel Wertheim - @@danielwertheim - http://daniel.wertheim.se</owners>
+	<authors>Daniel Wertheim</authors>
+	<owners>Daniel Wertheim</owners>
+	<copyright>Daniel Wertheim</copyright>
 	<summary>Core lib with helpers, utils and extensions.</summary>
     <description>
 		Contains helpers, utils and extensions to simplify some of the daily work.
@@ -16,7 +17,7 @@
 	<tags>core,utils,helpers,extensions</tags>
   </metadata>
   <files>
-    <file src="NCore.dll" target="lib" />
-	<file src="License*.txt" />
+    <file src="**\*.dll" target="lib\net40\"/>
+	<file src="**\*.xml" target="lib\net40\"/>
   </files>    
 </package>

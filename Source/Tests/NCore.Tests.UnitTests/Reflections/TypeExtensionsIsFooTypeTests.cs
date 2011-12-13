@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NCore.Reflections;
 using NUnit.Framework;
 
@@ -305,6 +306,12 @@ namespace NCore.Tests.UnitTests.Reflections
         public void IsEnumType_WhenNotEnumType_ReturnsFalse()
         {
             Assert.IsFalse(typeof(int).IsEnumType());
+        }
+
+        [Test]
+        public void IsKeyValueType_WhenKeyValuePairType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(KeyValuePair<int, int>).IsKeyValuePairType());
         }
     }
 }

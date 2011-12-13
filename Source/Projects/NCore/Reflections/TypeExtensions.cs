@@ -56,7 +56,7 @@ namespace NCore.Reflections
 
         public static bool IsKeyValuePairType(this Type type)
         {
-            return type.IsSimpleType() && type.IsGenericType && type.GetGenericTypeDefinition() == KeyValuePairType;
+            return type.IsGenericType && type.IsValueType && type.GetGenericTypeDefinition() == KeyValuePairType;
         }
 
         public static bool IsNumericType(this Type type)
