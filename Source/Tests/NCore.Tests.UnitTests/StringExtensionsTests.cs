@@ -5,6 +5,24 @@ namespace NCore.Tests.UnitTests
     [TestFixture]
     public class StringExtensionsTests : UnitTestBase
     {
+		[Test]
+		public void EndsWithAny_WhenFirstArgMatchesEnding_ReturnsTrue()
+		{
+			Assert.IsTrue("Foo bar".EndsWithAny("bar", "car"));
+		}
+
+    	[Test]
+    	public void EndsWithAny_WhenSecondArgMatchesEnding_ReturnsTrue()
+    	{
+    		Assert.IsTrue("Foo bar".EndsWithAny("Goo", "bar"));
+    	}
+
+		[Test]
+		public void EndsWithAny_WhenNoArgMathcesEnding_ReturnsFalse()
+		{
+			Assert.IsFalse("Foo bar".EndsWithAny("Goo", "car"));
+		}
+
         [Test]
         public void ToKeyValues_WhenTwoKeyValuePairsExists_TwoKeyValueEntriesAreCreated()
         {

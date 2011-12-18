@@ -7,7 +7,12 @@ namespace NCore
 {
     public static class StringExtensions
     {
-        public static string ToStringOrNull(this object obj)
+		public static bool EndsWithAny(this string value, params string[] match)
+		{
+			return match.Any(value.EndsWith);
+		}
+
+    	public static string ToStringOrNull(this object obj)
         {
             if (obj == null)
                 return null;
