@@ -27,13 +27,10 @@ namespace NCore
             if (value is Guid)
                 return value.ToString();
 
-            if (value is DateTime)
-            {
-                var dt = Convert.ToDateTime(value);
-                return GetAsString(dt);
-            }
+        	if (value is DateTime)
+        		return GetAsString(Convert.ToDateTime(value));
 
-            if (value is IConvertible)
+        	if (value is IConvertible)
                 return GetAsString((IConvertible)value);
 
             throw new NotSupportedException(ExceptionMessages.StringConverter_AsString_TypeOfValueIsNotSupported);
