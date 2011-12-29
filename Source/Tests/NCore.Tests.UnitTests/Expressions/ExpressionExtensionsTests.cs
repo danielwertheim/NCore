@@ -28,10 +28,25 @@ namespace NCore.Tests.UnitTests.Expressions
             Assert.AreEqual("ChildItem.ChildAge", path);
         }
 
+    	[Test]
+    	public void GetRightMostMemberExpression_WhenStartsWithOnToStringOfNullable_expect()
+    	{
+			var e = Foo<Dummy>(d => d.ChildItem.NullableInt.ToString().StartsWith("42"));
+
+			var memberExpression = e.GetRightMostMember();
+
+			Assert.AreEqual("NullableInt", memberExpression.Member.Name);
+    	}
+
         private MemberExpression CreateMemberExpression<T>(Expression<Func<T, dynamic>> e)
         {
             return (MemberExpression)(e.Body as UnaryExpression).Operand;
         }
+
+		private Expression Foo<T>(Expression<Func<T, dynamic>> e)
+		{
+			return e;
+		}
 
         private class Dummy
         {
@@ -43,6 +58,8 @@ namespace NCore.Tests.UnitTests.Expressions
         private class Child
         {
             public int ChildAge { get; set; }
+
+			public int? NullableInt { get; set; }
         }
     }
 }
