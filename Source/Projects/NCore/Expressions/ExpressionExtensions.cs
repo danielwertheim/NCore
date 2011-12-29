@@ -18,24 +18,28 @@ namespace NCore.Expressions
 
         public static MemberExpression GetRightMostMember(this Expression e)
         {
-            if (e is LambdaExpression)
-                return GetRightMostMember(((LambdaExpression)e).Body);
+			if (e is LambdaExpression)
+				return GetRightMostMember(((LambdaExpression)e).Body);
 
-            if (e is MemberExpression)
-                return (MemberExpression)e;
+			if (e is MemberExpression)
+				return (MemberExpression)e;
 
-            if (e is MethodCallExpression)
-            {
-                var callExpression = (MethodCallExpression)e;
-                var member = callExpression.Arguments.Count > 0 ? callExpression.Arguments[0] : callExpression.Object;
-                return GetRightMostMember(member);
-            }
+			if (e is MethodCallExpression)
+			{
+				var callExpression = (MethodCallExpression)e;
 
-            if (e is UnaryExpression)
-            {
-                var unaryExpression = (UnaryExpression)e;
-                return GetRightMostMember(unaryExpression.Operand);
-            }
+				if (callExpression.Object is MethodCallExpression || callExpression.Object is MemberExpression)
+					return GetRightMostMember(callExpression.Object);
+
+				var member = callExpression.Arguments.Count > 0 ? callExpression.Arguments[0] : callExpression.Object;
+				return GetRightMostMember(member);
+			}
+
+			if (e is UnaryExpression)
+			{
+				var unaryExpression = (UnaryExpression)e;
+				return GetRightMostMember(unaryExpression.Operand);
+			}
 
             throw new NCoreException(
                 ExceptionMessages.ExpressionUtils_GetRightMostMember_NoMemberFound.Inject(e.ToString()));
