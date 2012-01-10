@@ -96,7 +96,14 @@ namespace NCore.Reflections
 
         public static Type GetEnumerableElementType(this Type type)
         {
-            return type.IsGenericType ? ExtractEnumerableGenericType(type) : type.GetElementType();
+        	var elementType = (type.IsGenericType ? ExtractEnumerableGenericType(type) : type.GetElementType());
+			if (elementType != null)
+				return elementType;
+
+			if (type.BaseType.IsEnumerableType())
+				elementType = type.BaseType.GetEnumerableElementType();
+
+        	return elementType;
         }
 
         private static Type ExtractEnumerableGenericType(Type type)

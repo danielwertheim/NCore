@@ -9,6 +9,14 @@ namespace NCore.Tests.UnitTests.Reflections
     [TestFixture]
     public class TypeExtensionsGetEnumerableElementTypeTests : UnitTestBase
     {
+    	[Test]
+    	public void GetEnumerableElementType_WhenTypeExtensGenericEnumerable_ReturnsElementType()
+    	{
+    		var elementType = typeof (DummyList).GetEnumerableElementType();
+
+			Assert.AreEqual(typeof(DummyClass), elementType);
+    	}
+
         [Test]
         public void GetEnumerableElementType_WhenIEnumerableOfT_ReturnsElementType()
         {
@@ -144,6 +152,10 @@ namespace NCore.Tests.UnitTests.Reflections
 
             Assert.AreEqual(ExceptionMessages.TypeExtensions_ExtractEnumerableGenericType, ex.Message);
         }
+
+		private class DummyList : List<DummyClass>
+		{
+		}
 
         private class DummyClass
         {
