@@ -12,10 +12,10 @@ require 'albacore'
 @env_solutionname = 'NCore'
 @env_projectnameNCore = 'NCore'
 @env_solutionfolderpath = "../Source"
-@env_buildversion = "0.26.1" + (ENV['env_buildnumber'].to_s.empty? ? "" : ".#{ENV['env_buildnumber'].to_s}")
+@env_buildversion = "0.27.0" + (ENV['env_buildnumber'].to_s.empty? ? "" : ".#{ENV['env_buildnumber'].to_s}")
 @env_buildconfigname = ENV['env_buildconfigname'].to_s.empty? ? "Release" : ENV['env_buildconfigname'].to_s
 @env_buildname = "#{@env_solutionname}-v#{@env_buildversion}-#{@env_buildconfigname}"
-@env_buildfolderpath = @env_buildname
+@env_buildfolderpath = 'build'
 #--------------------------------------
 #optional if no remote nuget actions should be performed
 @env_nugetPublishApiKey = ENV['env_nugetPublishApiKey']
@@ -28,9 +28,9 @@ ncoreOutputPath = "#{@env_buildfolderpath}/#{@env_projectnameNCore}"
 #--------------------------------------
 # Albacore flow controlling tasks
 #--------------------------------------
-task :ci => [:buildIt, :copyIt, :testIt, :zipIt, :packIt, :publishIt]
+task :ci => [:buildIt, :copyNCore, :testIt, :zipIt, :packIt, :publishIt]
 
-task :local => [:buildIt, :copyIt, :testIt, :zipIt, :packIt]
+task :local => [:buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 #--------------------------------------
 task :testIt => [:unittests]
 
@@ -62,7 +62,7 @@ msbuild :buildIt => [:ensureCleanBuildFolder, :versionIt] do |msb|
 	msb.solution = "#{@env_solutionfolderpath}/#{@env_solutionname}.sln"
 end
 
-task :copyIt do
+task :copyNCore do
 	FileUtils.mkdir_p(ncoreOutputPath)
 	FileUtils.cp_r(FileList["#{@env_solutionfolderpath}/Projects/#{@env_projectnameNCore}/bin/#{@env_buildconfigname}/**"], ncoreOutputPath)
 end
@@ -75,7 +75,7 @@ end
 
 zip :zipNCore do |zip|
 	zip.directories_to_zip ncoreOutputPath
-	zip.output_file = "#{@env_buildname}-#{@env_projectnameNCoreAdmin}.zip"
+	zip.output_file = "#{@env_buildname}.zip"
 	zip.output_path = @env_buildfolderpath
 end
 
