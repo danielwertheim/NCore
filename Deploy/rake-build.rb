@@ -17,18 +17,13 @@ require 'albacore'
 @env_buildname = "#{@env_solutionname}-v#{@env_buildversion}-#{@env_buildconfigname}"
 @env_buildfolderpath = 'build'
 #--------------------------------------
-#optional if no remote nuget actions should be performed
-@env_nugetPublishApiKey = ENV['env_nugetPublishApiKey']
-@env_nugetPublishUrl = ENV['env_nugetPublishUrl']
-@env_nugetSourceUrl = ENV['env_nugetSourceUrl']
-#--------------------------------------
 # Reusable vars
 #--------------------------------------
 ncoreOutputPath = "#{@env_buildfolderpath}/#{@env_projectnameNCore}"
 #--------------------------------------
 # Albacore flow controlling tasks
 #--------------------------------------
-task :ci => [:buildIt, :copyNCore, :testIt, :zipIt, :packIt, :publishIt]
+task :ci => [:buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 
 task :local => [:buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 #--------------------------------------
@@ -37,8 +32,6 @@ task :testIt => [:unittests]
 task :zipIt => [:zipNCore]
 
 task :packIt => [:packNCoreNuGet]
-
-task :publishIt => [:publishNCoreNuGet]
 #--------------------------------------
 # Albacore tasks
 #--------------------------------------
@@ -82,9 +75,4 @@ end
 exec :packNCoreNuGet do |cmd|
 	cmd.command = "NuGet.exe"
 	cmd.parameters = "pack #{@env_projectnameNCore}.nuspec -version #{@env_buildversion} -basepath #{ncoreOutputPath} -outputdirectory #{@env_buildfolderpath}"
-end
-
-exec :publishNCoreNuGet do |cmd|
-	cmd.command = "NuGet.exe"
-	cmd.parameters = "push #{@env_buildfolderpath}/#{@env_projectnameNCore}.#{@env_buildversion}.nupkg #{@env_nugetPublishApiKey} -src #{@env_nugetPublishUrl}"
 end
