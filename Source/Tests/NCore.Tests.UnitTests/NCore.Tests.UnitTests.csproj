@@ -66,6 +66,7 @@
     <Compile Include="Reflections\TypeExtensionsIsNullableTypeTests.cs" />
     <Compile Include="Reflections\TypeExtensionsIsSimpleTypeTests.cs" />
     <Compile Include="StringExtensionsTests.cs" />
+    <Compile Include="SysDateTimeTests.cs" />
     <Compile Include="UnitTestBase.cs" />
   </ItemGroup>
   <ItemGroup>
