@@ -10,12 +10,15 @@ require 'albacore'
 # Environment vars
 #--------------------------------------
 @env_solutionname = 'NCore'
-@env_projectnameNCore = 'NCore'
 @env_solutionfolderpath = "../Source"
-@env_buildversion = "0.27.0" + (ENV['env_buildnumber'].to_s.empty? ? "" : ".#{ENV['env_buildnumber'].to_s}")
+
+@env_projectnameNCore = 'NCore'
+
+@env_buildfolderpath = 'build'
+@env_version = "0.28.0"
+@env_buildversion = @env_version + (ENV['env_buildnumber'].to_s.empty? ? "" : ".#{ENV['env_buildnumber'].to_s}")
 @env_buildconfigname = ENV['env_buildconfigname'].to_s.empty? ? "Release" : ENV['env_buildconfigname'].to_s
 @env_buildname = "#{@env_solutionname}-v#{@env_buildversion}-#{@env_buildconfigname}"
-@env_buildfolderpath = 'build'
 #--------------------------------------
 # Reusable vars
 #--------------------------------------
@@ -40,7 +43,7 @@ assemblyinfo :versionIt do |asm|
 
 	asm.input_file = sharedAssemblyInfoPath
 	asm.output_file = sharedAssemblyInfoPath
-	asm.version = @env_buildversion
+	asm.version = @env_version
 	asm.file_version = @env_buildversion  
 end
 
@@ -74,5 +77,5 @@ end
 
 exec :packNCoreNuGet do |cmd|
 	cmd.command = "NuGet.exe"
-	cmd.parameters = "pack #{@env_projectnameNCore}.nuspec -version #{@env_buildversion} -basepath #{ncoreOutputPath} -outputdirectory #{@env_buildfolderpath}"
+	cmd.parameters = "pack #{@env_projectnameNCore}.nuspec -version #{@env_version} -basepath #{ncoreOutputPath} -outputdirectory #{@env_buildfolderpath}"
 end
