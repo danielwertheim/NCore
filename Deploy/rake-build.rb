@@ -10,17 +10,15 @@ require 'albacore'
 # Environment vars
 #--------------------------------------
 @env_solutionname = 'NCore'
-@env_projectnameNCore = 'NCore'
 @env_solutionfolderpath = "../Source"
-@env_buildversion = "0.27.0" + (ENV['env_buildnumber'].to_s.empty? ? "" : ".#{ENV['env_buildnumber'].to_s}")
+
+@env_projectnameNCore = 'NCore'
+
+@env_buildfolderpath = 'build'
+@env_version = "0.28.0"
+@env_buildversion = @env_version + (ENV['env_buildnumber'].to_s.empty? ? "" : ".#{ENV['env_buildnumber'].to_s}")
 @env_buildconfigname = ENV['env_buildconfigname'].to_s.empty? ? "Release" : ENV['env_buildconfigname'].to_s
 @env_buildname = "#{@env_solutionname}-v#{@env_buildversion}-#{@env_buildconfigname}"
-@env_buildfolderpath = 'build'
-#--------------------------------------
-#optional if no remote nuget actions should be performed
-@env_nugetPublishApiKey = ENV['env_nugetPublishApiKey']
-@env_nugetPublishUrl = ENV['env_nugetPublishUrl']
-@env_nugetSourceUrl = ENV['env_nugetSourceUrl']
 #--------------------------------------
 # Reusable vars
 #--------------------------------------
@@ -28,7 +26,7 @@ ncoreOutputPath = "#{@env_buildfolderpath}/#{@env_projectnameNCore}"
 #--------------------------------------
 # Albacore flow controlling tasks
 #--------------------------------------
-task :ci => [:buildIt, :copyNCore, :testIt, :zipIt, :packIt, :publishIt]
+task :ci => [:buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 
 task :local => [:buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 #--------------------------------------
@@ -37,8 +35,6 @@ task :testIt => [:unittests]
 task :zipIt => [:zipNCore]
 
 task :packIt => [:packNCoreNuGet]
-
-task :publishIt => [:publishNCoreNuGet]
 #--------------------------------------
 # Albacore tasks
 #--------------------------------------
@@ -47,7 +43,7 @@ assemblyinfo :versionIt do |asm|
 
 	asm.input_file = sharedAssemblyInfoPath
 	asm.output_file = sharedAssemblyInfoPath
-	asm.version = @env_buildversion
+	asm.version = @env_version
 	asm.file_version = @env_buildversion  
 end
 
@@ -81,10 +77,5 @@ end
 
 exec :packNCoreNuGet do |cmd|
 	cmd.command = "NuGet.exe"
-	cmd.parameters = "pack #{@env_projectnameNCore}.nuspec -version #{@env_buildversion} -basepath #{ncoreOutputPath} -outputdirectory #{@env_buildfolderpath}"
-end
-
-exec :publishNCoreNuGet do |cmd|
-	cmd.command = "NuGet.exe"
-	cmd.parameters = "push #{@env_buildfolderpath}/#{@env_projectnameNCore}.#{@env_buildversion}.nupkg #{@env_nugetPublishApiKey} -src #{@env_nugetPublishUrl}"
+	cmd.parameters = "pack #{@env_projectnameNCore}.nuspec -version #{@env_version} -basepath #{ncoreOutputPath} -outputdirectory #{@env_buildfolderpath}"
 end
