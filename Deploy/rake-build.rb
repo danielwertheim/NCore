@@ -26,9 +26,9 @@ ncoreOutputPath = "#{@env_buildfolderpath}/#{@env_projectnameNCore}"
 #--------------------------------------
 # Albacore flow controlling tasks
 #--------------------------------------
-task :ci => [:buildIt, :copyNCore, :testIt, :zipIt, :packIt]
+task :ci => [:installNuGetPackages, :buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 
-task :local => [:buildIt, :copyNCore, :testIt, :zipIt, :packIt]
+task :local => [:installNuGetPackages, :buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 #--------------------------------------
 task :testIt => [:unittests]
 
@@ -38,6 +38,12 @@ task :packIt => [:packNCoreNuGet]
 #--------------------------------------
 # Albacore tasks
 #--------------------------------------
+task :installNuGetPackages do
+	FileList["#{@env_solutionfolderpath}/**/packages.config"].each { |filepath|
+		sh "NuGet.exe i #{filepath} -o #{@env_solutionfolderpath}/packages"
+	}
+end
+
 assemblyinfo :versionIt do |asm|
 	sharedAssemblyInfoPath = "#{@env_solutionfolderpath}/SharedAssemblyInfo.cs"
 
@@ -64,7 +70,7 @@ task :copyNCore do
 end
 
 nunit :unittests do |nunit|
-	nunit.command = "#{@env_solutionfolderpath}/packages/NUnit.2.5.10.11092/tools/nunit-console.exe"
+	nunit.command = "nunit-console.exe"
 	nunit.options "/framework=v4.0.30319","/xml=#{@env_buildfolderpath}/NUnit-Report-#{@env_solutionname}-UnitTests.xml"
 	nunit.assemblies FileList["#{@env_solutionfolderpath}/Tests/#{@env_solutionname}.**UnitTests/bin/#{@env_buildconfigname}/#{@env_solutionname}.**UnitTests.dll"]
 end
