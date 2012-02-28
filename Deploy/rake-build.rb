@@ -26,9 +26,9 @@ ncoreOutputPath = "#{@env_buildfolderpath}/#{@env_projectnameNCore}"
 #--------------------------------------
 # Albacore flow controlling tasks
 #--------------------------------------
-task :ci => [:buildIt, :copyNCore, :testIt, :zipIt, :packIt]
+task :ci => [:installNuGetPackages, :buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 
-task :local => [:buildIt, :copyNCore, :testIt, :zipIt, :packIt]
+task :local => [:installNuGetPackages, :buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 #--------------------------------------
 task :testIt => [:unittests]
 
@@ -38,6 +38,12 @@ task :packIt => [:packNCoreNuGet]
 #--------------------------------------
 # Albacore tasks
 #--------------------------------------
+task :installNuGetPackages do
+	FileList["#{@env_solutionfolderpath}/**/packages.config"].each { |filepath|
+		sh "NuGet.exe i #{filepath} -o #{@env_solutionfolderpath}/packages"
+	}
+end
+
 assemblyinfo :versionIt do |asm|
 	sharedAssemblyInfoPath = "#{@env_solutionfolderpath}/SharedAssemblyInfo.cs"
 
