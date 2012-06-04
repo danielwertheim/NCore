@@ -20,6 +20,18 @@ namespace NCore.Tests.UnitTests.Reflections
         }
 
         [Test]
+        public void IsNullablePrimitiveType_WhenNullableDateTime_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(DateTime?).IsNullablePrimitiveType());
+        }
+
+        [Test]
+        public void IsNullablePrimitiveType_WhenDateTime_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(DateTime).IsNullablePrimitiveType());
+        }
+
+        [Test]
         public void IsNullablePrimitiveType_WhenString_ReturnsFalse()
         {
             Assert.IsFalse(typeof(string).IsNullablePrimitiveType());
