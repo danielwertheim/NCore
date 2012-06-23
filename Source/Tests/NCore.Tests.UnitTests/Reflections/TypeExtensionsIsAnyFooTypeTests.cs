@@ -240,5 +240,113 @@ namespace NCore.Tests.UnitTests.Reflections
         {
             Assert.IsFalse(typeof(int).IsAnyEnumType());
         }
+
+        [Test]
+        public void IsAnyIntegerNumberType_WhenIntType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(int).IsAnyIntegerNumberType());
+        }
+
+        [Test]
+        public void IsAnyIntegerNumberType_WhenLongType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(long).IsAnyIntegerNumberType());
+        }
+
+        [Test]
+        public void IsAnyIntegerNumberType_WhenByteType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(byte).IsAnyIntegerNumberType());
+        }
+
+        [Test]
+        public void IsAnyIntegerNumberType_WhenShortType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(short).IsAnyIntegerNumberType());
+        }
+        
+        [Test]
+        public void IsAnyIntegerNumberType_WhenUShortType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(ushort).IsAnyIntegerNumberType());
+        }
+
+        [Test]
+        public void IsAnyIntegerNumberType_WhenUIntType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(uint).IsAnyIntegerNumberType());
+        }
+
+        [Test]
+        public void IsAnyIntegerNumberType_WhenULongType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(ulong).IsAnyIntegerNumberType());
+        }
+
+        [Test]
+        public void IsAnyFractalNumberType_WhenDecimalType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(decimal).IsAnyFractalNumberType());
+        }
+
+        [Test]
+        public void IsAnyFractalNumberType_WhenDoubleType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(double).IsAnyFractalNumberType());
+        }
+
+        [Test]
+        public void IsAnyFractalNumberType_WhenSingleType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(Single).IsAnyFractalNumberType());
+        }
+
+        [Test]
+        public void IsAnyFractalNumberType_WhenFloatType_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(float).IsAnyFractalNumberType());
+        }
+
+        [Test]
+        public void IsAnyUnsignedType_WhenPlainInt_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(int).IsAnyUnsignedType());
+        }
+
+        [Test]
+        public void IsAnyUnsignedType_WhenUShort_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(ushort).IsAnyUnsignedType());
+        }
+
+        [Test]
+        public void IsAnyUnsignedType_WhenUInt_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(uint).IsAnyUnsignedType());
+        }
+
+        [Test]
+        public void IsAnyUnsignedType_WhenULong_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(ulong).IsAnyUnsignedType());
+        }
+
+        [Test]
+        public void IsAnyUnsignedType_WhenNullableUShort_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(ushort?).IsAnyUnsignedType());
+        }
+
+        [Test]
+        public void IsAnyUnsignedType_WhenNullableUInt_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(uint?).IsAnyUnsignedType());
+        }
+
+        [Test]
+        public void IsAnyUnsignedType_WhenNullableULong_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(ulong?).IsAnyUnsignedType());
+        }
     }
 }
