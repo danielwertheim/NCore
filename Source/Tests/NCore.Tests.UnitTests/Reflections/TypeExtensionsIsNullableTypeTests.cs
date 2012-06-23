@@ -180,5 +180,47 @@ namespace NCore.Tests.UnitTests.Reflections
         {
             Assert.IsFalse(typeof(GCCollectionMode).IsNullableEnumType());
         }
+
+        [Test]
+        public void IsNullableUnsignedType_WhenPlainInt_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(int).IsNullableUnsignedType());
+        }
+
+        [Test]
+        public void IsNullableUnsignedType_WhenUShort_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(ushort).IsNullableUnsignedType());
+        }
+
+        [Test]
+        public void IsNullableUnsignedType_WhenUInt_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(uint).IsNullableUnsignedType());
+        }
+
+        [Test]
+        public void IsNullableUnsignedType_WhenULong_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(ulong).IsNullableUnsignedType());
+        }
+
+        [Test]
+        public void IsNullableUnsignedType_WhenNullableUShort_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(ushort?).IsNullableUnsignedType());
+        }
+
+        [Test]
+        public void IsNullableUnsignedType_WhenNullableUInt_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(uint?).IsNullableUnsignedType());
+        }
+
+        [Test]
+        public void IsNullableUnsignedType_WhenNullableULong_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(ulong?).IsNullableUnsignedType());
+        }
     }
 }
