@@ -9,54 +9,6 @@ namespace NCore.Tests.UnitTests.Reflections
     public class TypeExtensionsIsFooTypeTests : UnitTestBase
     {
         [Test]
-        public void IsAnyIntegerNumberType_WhenIntType_ReturnsTrue()
-        {
-            Assert.IsTrue(typeof(int).IsAnyIntegerNumberType());
-        }
-
-        [Test]
-        public void IsAnyIntegerNumberType_WhenLongType_ReturnsTrue()
-        {
-            Assert.IsTrue(typeof(long).IsAnyIntegerNumberType());
-        }
-
-        [Test]
-        public void IsAnyIntegerNumberType_WhenByteType_ReturnsTrue()
-        {
-            Assert.IsTrue(typeof(byte).IsAnyIntegerNumberType());
-        }
-
-        [Test]
-        public void IsAnyIntegerNumberType_WhenShortType_ReturnsTrue()
-        {
-            Assert.IsTrue(typeof(short).IsAnyIntegerNumberType());
-        }
-
-        [Test]
-        public void IsAnyFractalNumberType_WhenDecimalType_ReturnsTrue()
-        {
-            Assert.IsTrue(typeof(decimal).IsAnyFractalNumberType());
-        }
-
-        [Test]
-        public void IsAnyFractalNumberType_WhenDoubleType_ReturnsTrue()
-        {
-            Assert.IsTrue(typeof(double).IsAnyFractalNumberType());
-        }
-
-        [Test]
-        public void IsAnyFractalNumberType_WhenSingleType_ReturnsTrue()
-        {
-            Assert.IsTrue(typeof(Single).IsAnyFractalNumberType());
-        }
-
-        [Test]
-        public void IsAnyFractalNumberType_WhenFloatType_ReturnsTrue()
-        {
-            Assert.IsTrue(typeof(float).IsAnyFractalNumberType());
-        }
-
-        [Test]
         public void IsNumericType_WhenIntType_ReturnsTrue()
         {
             Assert.IsTrue(typeof(int).IsNumericType());
@@ -312,6 +264,48 @@ namespace NCore.Tests.UnitTests.Reflections
         public void IsKeyValueType_WhenKeyValuePairType_ReturnsTrue()
         {
             Assert.IsTrue(typeof(KeyValuePair<int, int>).IsKeyValuePairType());
+        }
+
+        [Test]
+        public void IsUnsignedType_WhenPlainInt_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(int).IsUnsignedType());
+        }
+
+        [Test]
+        public void IsUnsignedType_WhenUShort_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(ushort).IsUnsignedType());
+        }
+
+        [Test]
+        public void IsUnsignedType_WhenUInt_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(uint).IsUnsignedType());
+        }
+
+        [Test]
+        public void IsUnsignedType_WhenULong_ReturnsTrue()
+        {
+            Assert.IsTrue(typeof(ulong).IsUnsignedType());
+        }
+
+        [Test]
+        public void IsUnsignedType_WhenNullableUShort_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(ushort?).IsUnsignedType());
+        }
+
+        [Test]
+        public void IsUnsignedType_WhenNullableUInt_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(uint?).IsUnsignedType());
+        }
+
+        [Test]
+        public void IsUnsignedType_WhenNullableULong_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(ulong?).IsUnsignedType());
         }
     }
 }

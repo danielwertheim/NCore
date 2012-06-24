@@ -8,7 +8,7 @@ namespace NCore.Reflections
     public static class TypeExtensions
     {
         private static readonly Type EnumerableType = typeof(IEnumerable);
-        private static readonly Type DictionaryType = typeof (IDictionary);
+        private static readonly Type DictionaryType = typeof(IDictionary);
         private static readonly Type DictionaryOfTType = typeof(IDictionary<,>);
         private static readonly Type KeyValuePairType = typeof(KeyValuePair<,>);
         private static readonly Type EnumType = typeof(Enum);
@@ -48,10 +48,12 @@ namespace NCore.Reflections
 
         private static readonly HashSet<Type> ExtraPrimitiveTypes = new HashSet<Type> { typeof(string), typeof(Guid), typeof(DateTime), typeof(Decimal) };
         private static readonly HashSet<Type> ExtraPrimitiveNullableTypes = new HashSet<Type> { typeof(Guid?), typeof(DateTime?), typeof(Decimal?) };
+        private static readonly HashSet<Type> UnsignedTypes = new HashSet<Type> { typeof(ushort), typeof(uint), typeof(ulong) };
+        private static readonly HashSet<Type> NullableUnsignedTypes = new HashSet<Type> { typeof(ushort?), typeof(uint?), typeof(ulong?) };
 
         public static bool IsSimpleType(this Type type)
         {
-            return type.IsPrimitive || type.IsEnum || ExtraPrimitiveTypes.Contains(type) || ExtraPrimitiveNullableTypes.Contains(type) || type.IsNullablePrimitiveType();
+            return (type.IsGenericType == false && type.IsValueType) || type.IsPrimitive || type.IsEnum || ExtraPrimitiveTypes.Contains(type) || type.IsNullablePrimitiveType();
         }
 
         public static bool IsKeyValuePairType(this Type type)
@@ -69,19 +71,20 @@ namespace NCore.Reflections
         public static bool IsAnyIntegerNumberType(this Type type)
         {
             return
-                IsAnyIntType(type) || IsAnyLongType(type) || IsAnyShortType(type) || IsAnyByteType(type);
+                type.IsAnyIntType() || type.IsAnyLongType() || type.IsAnyShortType() || type.IsAnyByteType() || type.IsAnyUnsignedType();
         }
 
         public static bool IsAnyFractalNumberType(this Type type)
         {
             return
-                IsAnyDoubleType(type) || IsAnyDecimalType(type) || IsAnySingleType(type) || IsAnyFloatType(type);
+                type.IsAnyDoubleType() || type.IsAnyDecimalType() || type.IsAnySingleType() || type.IsAnyFloatType();
         }
 
         public static bool IsEnumerableType(this Type type)
         {
-            return !type.IsSimpleType()
-                   && EnumerableType.IsAssignableFrom(type);
+            return type.IsValueType == false
+                && type.IsPrimitive == false
+                && EnumerableType.IsAssignableFrom(type);
         }
 
         public static bool IsEnumerableBytesType(this Type type)
@@ -96,14 +99,14 @@ namespace NCore.Reflections
 
         public static Type GetEnumerableElementType(this Type type)
         {
-        	var elementType = (type.IsGenericType ? ExtractEnumerableGenericType(type) : type.GetElementType());
-			if (elementType != null)
-				return elementType;
+            var elementType = (type.IsGenericType ? ExtractEnumerableGenericType(type) : type.GetElementType());
+            if (elementType != null)
+                return elementType;
 
-			if (type.BaseType.IsEnumerableType())
-				elementType = type.BaseType.GetEnumerableElementType();
+            if (type.BaseType.IsEnumerableType())
+                elementType = type.BaseType.GetEnumerableElementType();
 
-        	return elementType;
+            return elementType;
         }
 
         private static Type ExtractEnumerableGenericType(Type type)
@@ -328,6 +331,21 @@ namespace NCore.Reflections
             }
 
             return false;
+        }
+
+        public static bool IsAnyUnsignedType(this Type t)
+        {
+            return t.IsUnsignedType() || t.IsNullableUnsignedType();
+        }
+
+        public static bool IsUnsignedType(this Type t)
+        {
+            return t.IsValueType && UnsignedTypes.Contains(t);
+        }
+
+        public static bool IsNullableUnsignedType(this Type t)
+        {
+            return t.IsValueType && NullableUnsignedTypes.Contains(t);
         }
     }
 }
