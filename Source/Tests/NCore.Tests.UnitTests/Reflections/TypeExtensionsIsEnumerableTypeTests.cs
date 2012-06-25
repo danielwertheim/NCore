@@ -190,6 +190,12 @@ namespace NCore.Tests.UnitTests.Reflections
             Assert.IsTrue(typeof(IDictionary<,>).IsEnumerableType());
         }
 
+        [Test]
+        public void IsEnumerableType_WhenString_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(string).IsEnumerableType());
+        }
+
         private class DummyClass
         {
         }

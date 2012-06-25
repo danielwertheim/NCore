@@ -82,7 +82,8 @@ namespace NCore.Reflections
 
         public static bool IsEnumerableType(this Type type)
         {
-            return type.IsValueType == false
+            return type != StringType 
+                && type.IsValueType == false
                 && type.IsPrimitive == false
                 && EnumerableType.IsAssignableFrom(type);
         }
