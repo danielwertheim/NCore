@@ -70,14 +70,23 @@ namespace NCore.Reflections
 
         public static bool IsAnyIntegerNumberType(this Type type)
         {
-            return
-                type.IsAnyIntType() || type.IsAnyLongType() || type.IsAnyShortType() || type.IsAnyByteType() || type.IsAnyUnsignedType();
+            return type.IsAnySignedIntegerNumberType() || type.IsAnyUnsignedType();
+        }
+
+        public static bool IsAnySignedIntegerNumberType(this Type type)
+        {
+            return type.IsAnyIntType() 
+                || type.IsAnyLongType() 
+                || type.IsAnyShortType() 
+                || type.IsAnyByteType();
         }
 
         public static bool IsAnyFractalNumberType(this Type type)
         {
-            return
-                type.IsAnyDoubleType() || type.IsAnyDecimalType() || type.IsAnySingleType() || type.IsAnyFloatType();
+            return type.IsAnyDoubleType() 
+                || type.IsAnyDecimalType() 
+                || type.IsAnySingleType() 
+                || type.IsAnyFloatType();
         }
 
         public static bool IsEnumerableType(this Type type)

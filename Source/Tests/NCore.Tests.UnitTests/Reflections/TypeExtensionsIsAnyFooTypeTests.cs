@@ -284,6 +284,24 @@ namespace NCore.Tests.UnitTests.Reflections
         }
 
         [Test]
+        public void IsAnySignedIntegerNumberType_WhenUShortType_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(ushort).IsAnySignedIntegerNumberType());
+        }
+
+        [Test]
+        public void IsAnySignedIntegerNumberType_WhenUIntType_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(uint).IsAnySignedIntegerNumberType());
+        }
+
+        [Test]
+        public void IsAnySignedIntegerNumberType_WhenULongType_ReturnsFalse()
+        {
+            Assert.IsFalse(typeof(ulong).IsAnySignedIntegerNumberType());
+        }
+
+        [Test]
         public void IsAnyFractalNumberType_WhenDecimalType_ReturnsTrue()
         {
             Assert.IsTrue(typeof(decimal).IsAnyFractalNumberType());
