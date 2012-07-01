@@ -144,9 +144,6 @@
   <data name="TypeExtensions_ExtractEnumerableGenericType" xml:space="preserve">
     <value>When extracting generic element type from enumerables, a maximum of two generic arguments are supported, which then are supposed to belong to KeyValuePair&lt;TKey, TValue&gt;.</value>
   </data>
-  <data name="ExpressionUtils_GetRightMostMember_NoMemberFound" xml:space="preserve">
-    <value>No MemberExpression found in expression: '{0}'.</value>
-  </data>
   <data name="EnsureExtensions_HasNonWhiteSpaceValue" xml:space="preserve">
     <value>The string can't be left empty, null or consist of only whitespaces.</value>
   </data>
