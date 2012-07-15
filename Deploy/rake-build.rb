@@ -57,7 +57,7 @@ end
 assemblyinfo :signIt do |asm|
 	asm.input_file = sharedAssemblyInfoPath
 	asm.output_file = sharedAssemblyInfoPath
-	asm.custom_attributes :AssemblyKeyFileAttribute => "..\\..\\NCore.snk"
+	asm.custom_attributes :AssemblyKeyFileAttribute => "..\\..\\#{@env_projectnameNCore}.snk"
 end
 
 task :cleanIt do
