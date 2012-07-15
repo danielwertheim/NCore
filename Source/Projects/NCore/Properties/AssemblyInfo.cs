@@ -12,6 +12,3 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("68f6bf41-3888-463e-bcdf-1e6ba392d7d8")]
-
-[assembly: InternalsVisibleTo("NCore.Tests.UnitTests")]
-[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
