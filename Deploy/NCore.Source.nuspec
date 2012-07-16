@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>NCore.Source</id>    
+    <title>NCore (source)</title>
+	<version>0.0.0.0</version>
+	<authors>Daniel Wertheim</authors>
+	<copyright>Daniel Wertheim</copyright>
+	<summary>Core lib with helpers, utils and extensions.</summary>
+    <description>
+		Contains helpers, utils and extensions to simplify some of the daily work.
+	</description>
+	<projectUrl>http://github.com/danielwertheim/ncore</projectUrl>
+	<licenseUrl>http://github.com/danielwertheim/ncore/blob/master/Source/License-NCore.txt</licenseUrl>
+	<requireLicenseAcceptance>false</requireLicenseAcceptance>
+	<tags>core,utils,helpers,extensions</tags>
+  </metadata>
+  <files>
+	<file src="Projects\NCore\**\*.cs" target="Content\net40\NCore" exclude="Projects\NCore\Properties\**\*.cs;Projects\NCore\Resources\**\*.*" />
+	<file src="Projects\NCore\Resources\*.resx" target="Content\net40\NCore\Resources" />
+  </files>    
+</package>

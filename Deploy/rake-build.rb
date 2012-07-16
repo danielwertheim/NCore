@@ -37,7 +37,7 @@ task :testIt => [:unittests]
 
 task :zipIt => [:zipNCore]
 
-task :packIt => [:packNCoreNuGet]
+task :packIt => [:packNCoreNuGet, :packNCoreSourceNuGet]
 #--------------------------------------
 # Albacore tasks
 #--------------------------------------
@@ -91,4 +91,9 @@ end
 exec :packNCoreNuGet do |cmd|
 	cmd.command = "NuGet.exe"
 	cmd.parameters = "pack #{@env_projectnameNCore}.nuspec -version #{@env_version} -basepath #{ncoreOutputPath} -outputdirectory #{@env_buildfolderpath}"
+end
+
+exec :packNCoreSourceNuGet do |cmd|
+  cmd.command = "NuGet.exe"
+  cmd.parameters = "pack #{@env_projectnameNCore}.Source.nuspec -version #{@env_version} -basepath #{@env_solutionfolderpath} -outputdirectory #{@env_buildfolderpath}"
 end
