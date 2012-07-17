@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E62F4F41-93CF-4EAE-B311-936BF7FF0575}"
 	ProjectSection(SolutionItems) = preProject
 		License-NCore.txt = License-NCore.txt
+		NCore.snk = NCore.snk
 		SharedAssemblyInfo.cs = SharedAssemblyInfo.cs
 	EndProjectSection
 EndProject

@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using NCore.Resources;
 
 namespace NCore.Expressions
 {
@@ -41,8 +40,7 @@ namespace NCore.Expressions
 				return GetRightMostMember(unaryExpression.Operand);
 			}
 
-            throw new NCoreException(
-                ExceptionMessages.ExpressionUtils_GetRightMostMember_NoMemberFound.Inject(e.ToString()));
+            return null;
         }
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace NCore
@@ -13,20 +12,17 @@ namespace NCore
 		}
 
     	public static string ToStringOrNull(this object obj)
-        {
-            if (obj == null)
-                return null;
+    	{
+    	    return obj == null 
+                ? null 
+                : obj.ToString();
+    	}
 
-            return obj.ToString();
-        }
-
-        [DebuggerStepThrough]
         public static string Inject(this string format, params object[] formattingArgs)
         {
             return string.Format(format, formattingArgs);
         }
 
-        [DebuggerStepThrough]
         public static string Inject(this string format, params string[] formattingArgs)
         {
             return string.Format(format, formattingArgs);
