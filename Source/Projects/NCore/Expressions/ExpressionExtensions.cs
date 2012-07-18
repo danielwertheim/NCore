@@ -74,7 +74,7 @@ namespace NCore.Expressions
             return constantExpression.Value;
         }
 
-        public static bool IsNullValue(Expression e)
+        public static bool IsNullValue(this Expression e)
         {
             if (e is ConstantExpression)
                 return (e as ConstantExpression).IsNullConstant();
