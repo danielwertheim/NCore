@@ -9,6 +9,30 @@ namespace NCore.Tests.UnitTests.Expressions
     public class ExpressionExtensionsTests
     {
         [Test]
+        public void IsNullConstant_WhenDbNull_ReturnsTrue()
+        {
+            var e = Expression.Constant(DBNull.Value);
+
+            Assert.IsTrue(e.IsNullConstant());
+        }
+
+        [Test]
+        public void IsNullConstant_WhenNull_ReturnsTrue()
+        {
+            var e = Expression.Constant(null);
+
+            Assert.IsTrue(e.IsNullConstant());
+        }
+
+        [Test]
+        public void IsNullConstant_WhenNotNull_ReturnsFalse()
+        {
+            var e = Expression.Constant("Foo");
+
+            Assert.IsFalse(e.IsNullConstant());
+        }
+
+        [Test]
         public void GetRightMostMemberExpression_WhenStartsWithOnToStringOfNullable_ReturnsMember()
         {
             var e = CreateExpression<Dummy>(d => d.ChildItem.NullableInt.ToString().StartsWith("42"));

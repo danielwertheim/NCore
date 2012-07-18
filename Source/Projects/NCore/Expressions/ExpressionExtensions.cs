@@ -1,18 +1,13 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 
 namespace NCore.Expressions
 {
     public static class ExpressionExtensions
     {
-        public static string ToPath(this MemberExpression e)
+        public static bool IsNullConstant(this ConstantExpression e)
         {
-            var path = "";
-            var parent = e.Expression as MemberExpression;
-
-            if (parent != null)
-                path = parent.ToPath() + ".";
-
-            return path + e.Member.Name;
+            return e.Value == null || DBNull.Value.Equals(e.Value);
         }
 
         public static MemberExpression GetRightMostMember(this Expression e)
@@ -41,6 +36,17 @@ namespace NCore.Expressions
 			}
 
             return null;
+        }
+
+        public static string ToPath(this MemberExpression e)
+        {
+            var path = "";
+            var parent = e.Expression as MemberExpression;
+
+            if (parent != null)
+                path = parent.ToPath() + ".";
+
+            return path + e.Member.Name;
         }
     }
 }
