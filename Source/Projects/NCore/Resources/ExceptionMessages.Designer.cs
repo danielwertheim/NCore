@@ -61,119 +61,20 @@ namespace NCore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The string can&apos;t be left empty, null or consist of only whitespaces..
+        ///   Looks up a localized string similar to Don&apos;t know how to evaluate the expression type: &apos;{0}&apos;..
         /// </summary>
-        public static string EnsureExtensions_HasNonWhiteSpaceValue {
+        public static string ExpressionEvaluation_DontKnowHowToEvalExpression {
             get {
-                return ResourceManager.GetString("EnsureExtensions_HasNonWhiteSpaceValue", resourceCulture);
+                return ResourceManager.GetString("ExpressionEvaluation_DontKnowHowToEvalExpression", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expected an expression that evaluates to false..
+        ///   Looks up a localized string similar to Don&apos;t know how to evaluate the unary expression of node type: &apos;{0}&apos;..
         /// </summary>
-        public static string EnsureExtensions_IsFalseFor {
+        public static string ExpressionEvaluation_DontKnowHowToEvalUnaryExpression {
             get {
-                return ResourceManager.GetString("EnsureExtensions_IsFalseFor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is not greater than limit &apos;{1}&apos;..
-        /// </summary>
-        public static string EnsureExtensions_IsGt {
-            get {
-                return ResourceManager.GetString("EnsureExtensions_IsGt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is not greater than or equal to limit &apos;{1}&apos;..
-        /// </summary>
-        public static string EnsureExtensions_IsGte {
-            get {
-                return ResourceManager.GetString("EnsureExtensions_IsGte", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is &gt; max &apos;{1}&apos;..
-        /// </summary>
-        public static string EnsureExtensions_IsInRange_ToHigh {
-            get {
-                return ResourceManager.GetString("EnsureExtensions_IsInRange_ToHigh", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is &lt; min &apos;{1}&apos;..
-        /// </summary>
-        public static string EnsureExtensions_IsInRange_ToLow {
-            get {
-                return ResourceManager.GetString("EnsureExtensions_IsInRange_ToLow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is not lower than limit &apos;{1}&apos;..
-        /// </summary>
-        public static string EnsureExtensions_IsLt {
-            get {
-                return ResourceManager.GetString("EnsureExtensions_IsLt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is not lower than or equal to limit &apos;{1}&apos;..
-        /// </summary>
-        public static string EnsureExtensions_IsLte {
-            get {
-                return ResourceManager.GetString("EnsureExtensions_IsLte", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Empty collection is not allowed..
-        /// </summary>
-        public static string EnsureExtensions_IsNonEmptyCollection {
-            get {
-                return ResourceManager.GetString("EnsureExtensions_IsNonEmptyCollection", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Empty Guid is not allowed..
-        /// </summary>
-        public static string EnsureExtensions_IsNonEmptyGuid {
-            get {
-                return ResourceManager.GetString("EnsureExtensions_IsNonEmptyGuid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Value can not be null..
-        /// </summary>
-        public static string EnsureExtensions_IsNotNull {
-            get {
-                return ResourceManager.GetString("EnsureExtensions_IsNotNull", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The param is not of expected type: &apos;{0}&apos;..
-        /// </summary>
-        public static string EnsureExtensions_IsOfType {
-            get {
-                return ResourceManager.GetString("EnsureExtensions_IsOfType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Expected an expression that evaluates to true..
-        /// </summary>
-        public static string EnsureExtensions_IsTrueFor {
-            get {
-                return ResourceManager.GetString("EnsureExtensions_IsTrueFor", resourceCulture);
+                return ResourceManager.GetString("ExpressionEvaluation_DontKnowHowToEvalUnaryExpression", resourceCulture);
             }
         }
         
