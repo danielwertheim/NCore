@@ -117,49 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EnsureExtensions_IsGte" xml:space="preserve">
-    <value>value '{0}' is not greater than or equal to limit '{1}'.</value>
-  </data>
-  <data name="EnsureExtensions_IsGt" xml:space="preserve">
-    <value>value '{0}' is not greater than limit '{1}'.</value>
-  </data>
-  <data name="EnsureExtensions_IsInRange_ToHigh" xml:space="preserve">
-    <value>value '{0}' is &gt; max '{1}'.</value>
-  </data>
-  <data name="EnsureExtensions_IsInRange_ToLow" xml:space="preserve">
-    <value>value '{0}' is &lt; min '{1}'.</value>
-  </data>
-  <data name="EnsureExtensions_IsNonEmptyCollection" xml:space="preserve">
-    <value>Empty collection is not allowed.</value>
-  </data>
-  <data name="EnsureExtensions_IsNonEmptyGuid" xml:space="preserve">
-    <value>Empty Guid is not allowed.</value>
-  </data>
-  <data name="EnsureExtensions_IsNotNull" xml:space="preserve">
-    <value>Value can not be null.</value>
-  </data>
   <data name="StringConverter_AsString_TypeOfValueIsNotSupported" xml:space="preserve">
     <value>The value being retrieved is not of supported type. It must either be a string or the type needs to implement IConvertible or if Nullable&lt;T&gt;, then T needs to implement it.</value>
   </data>
   <data name="TypeExtensions_ExtractEnumerableGenericType" xml:space="preserve">
     <value>When extracting generic element type from enumerables, a maximum of two generic arguments are supported, which then are supposed to belong to KeyValuePair&lt;TKey, TValue&gt;.</value>
   </data>
-  <data name="EnsureExtensions_HasNonWhiteSpaceValue" xml:space="preserve">
-    <value>The string can't be left empty, null or consist of only whitespaces.</value>
+  <data name="ExpressionEvaluation_DontKnowHowToEvalExpression" xml:space="preserve">
+    <value>Don't know how to evaluate the expression type: '{0}'.</value>
   </data>
-  <data name="EnsureExtensions_IsFalseFor" xml:space="preserve">
-    <value>Expected an expression that evaluates to false.</value>
-  </data>
-  <data name="EnsureExtensions_IsTrueFor" xml:space="preserve">
-    <value>Expected an expression that evaluates to true.</value>
-  </data>
-  <data name="EnsureExtensions_IsOfType" xml:space="preserve">
-    <value>The param is not of expected type: '{0}'.</value>
-  </data>
-  <data name="EnsureExtensions_IsLt" xml:space="preserve">
-    <value>value '{0}' is not lower than limit '{1}'.</value>
-  </data>
-  <data name="EnsureExtensions_IsLte" xml:space="preserve">
-    <value>value '{0}' is not lower than or equal to limit '{1}'.</value>
+  <data name="ExpressionEvaluation_DontKnowHowToEvalUnaryExpression" xml:space="preserve">
+    <value>Don't know how to evaluate the unary expression of node type: '{0}'.</value>
   </data>
 </root>
