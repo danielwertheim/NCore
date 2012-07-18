@@ -123,5 +123,26 @@ namespace NCore.Collections
                     yield return i;
             }
         }
+
+        public static Exception[] TryForAll<T>(this IEnumerable<T> source, Action<T> action)
+        {
+            var exceptions = new List<Exception>();
+
+            foreach (var element in source)
+            {
+                try
+                {
+                    action.Invoke(element);
+                }
+                catch (Exception ex)
+                {
+                    exceptions.Add(ex);
+                }
+            }
+
+            return exceptions.Any()
+                ? exceptions.ToArray()
+                : null;
+        }
     }
 }

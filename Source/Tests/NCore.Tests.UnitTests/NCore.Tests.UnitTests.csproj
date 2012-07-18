@@ -46,7 +46,9 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Collections\DictionaryExtensionsTests.cs" />
+    <Compile Include="Collections\EnumerableExtensionsTests.cs" />
     <Compile Include="Cryptography\HashServiceTests.cs" />
+    <Compile Include="DisposerTests.cs" />
     <Compile Include="Expressions\ExpressionExtensionsTests.cs" />
     <Compile Include="Reflections\CopyObjectTests.cs" />
     <Compile Include="Reflections\TypeExtensionsIsAnyFooTypeTests.cs" />
