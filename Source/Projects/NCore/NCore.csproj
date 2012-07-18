@@ -51,6 +51,7 @@
     <Compile Include="Disposer.cs" />
     <Compile Include="Expressions\ExpressionExtensions.cs" />
     <Compile Include="IFormatting.cs" />
+    <Compile Include="Io\IoUtils.cs" />
     <Compile Include="IStringConverter.cs" />
     <Compile Include="NCoreException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
