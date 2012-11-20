@@ -47,7 +47,9 @@
     </Compile>
     <Compile Include="Collections\DictionaryExtensionsTests.cs" />
     <Compile Include="Collections\EnumerableExtensionsTests.cs" />
-    <Compile Include="Cryptography\HashServiceTests.cs" />
+    <Compile Include="Cryptography\Md5HashServiceTests.cs" />
+    <Compile Include="Cryptography\Crc32HashServiceTests.cs" />
+    <Compile Include="Cryptography\Sha1HashServiceTests.cs" />
     <Compile Include="DisposerTests.cs" />
     <Compile Include="Expressions\ExpressionExtensionsTests.cs" />
     <Compile Include="Reflections\CopyObjectTests.cs" />

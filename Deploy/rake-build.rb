@@ -15,7 +15,7 @@ require 'albacore'
 @env_projectnameNCore = 'NCore'
 
 @env_buildfolderpath = 'build'
-@env_version = "0.32.0"
+@env_version = "0.33.0"
 @env_buildversion = @env_version + (ENV['env_buildnumber'].to_s.empty? ? "" : ".#{ENV['env_buildnumber'].to_s}")
 @env_buildconfigname = ENV['env_buildconfigname'].to_s.empty? ? "Release" : ENV['env_buildconfigname'].to_s
 @env_buildname = "#{@env_solutionname}-v#{@env_buildversion}-#{@env_buildconfigname}"
@@ -30,8 +30,6 @@ sharedAssemblyInfoPath = "#{@env_solutionfolderpath}/SharedAssemblyInfo.cs"
 task :ci => [:installNuGets, :cleanIt, :versionIt, :buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 
 task :local => [:installNuGets, :cleanIt, :versionIt, :buildIt, :copyNCore, :testIt, :zipIt, :packIt]
-
-task :local_signed => [:installNuGets, :cleanIt, :versionIt, :signIt, :buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 #--------------------------------------
 task :testIt => [:unittests]
 
@@ -52,12 +50,6 @@ assemblyinfo :versionIt do |asm|
 	asm.output_file = sharedAssemblyInfoPath
 	asm.version = @env_version
 	asm.file_version = @env_buildversion
-end
-
-assemblyinfo :signIt do |asm|
-	asm.input_file = sharedAssemblyInfoPath
-	asm.output_file = sharedAssemblyInfoPath
-	asm.custom_attributes :AssemblyKeyFileAttribute => "..\\..\\#{@env_projectnameNCore}.snk"
 end
 
 task :cleanIt do

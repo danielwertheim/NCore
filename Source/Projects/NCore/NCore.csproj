@@ -46,7 +46,10 @@
     <Compile Include="Collections\DictionaryExtensions.cs" />
     <Compile Include="Cryptography\Crc32HashService.cs" />
     <Compile Include="Cryptography\Crc32Algorithm.cs" />
+    <Compile Include="Cryptography\HashServiceBase.cs" />
     <Compile Include="Cryptography\IHashService.cs" />
+    <Compile Include="Cryptography\Md5HashService.cs" />
+    <Compile Include="Cryptography\Sha1HashService.cs" />
     <Compile Include="DefaultFormatting.cs" />
     <Compile Include="Disposer.cs" />
     <Compile Include="Expressions\ExpressionExtensions.cs" />
@@ -65,6 +68,7 @@
     </Compile>
     <Compile Include="StringExtensions.cs" />
     <Compile Include="SysDateTime.cs" />
+    <Compile Include="Try.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\ExceptionMessages.resx">

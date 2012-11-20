@@ -5,41 +5,13 @@ using NUnit.Framework;
 namespace NCore.Tests.UnitTests.Cryptography
 {
     [TestFixture]
-    public class HashServiceTests : UnitTestBase
+    public class Crc32HashServiceTests : UnitTestBase
     {
         private IHashService _hasher;
 
         protected override void OnFixtureInitialize()
         {
             _hasher = new Crc32HashService();
-        }
-
-        [Test]
-        public void GetHashLength_Returns8()
-        {
-            var hashLength = _hasher.GetHashLength();
-
-            Assert.AreEqual(8, hashLength);
-        }
-
-        [Test]
-        public void HashLengthComparision_WhenStringEmpty_AreEqual()
-        {
-            var hashLength = _hasher.GetHashLength();
-
-            var hash = _hasher.GenerateHash(string.Empty);
-
-            Assert.AreEqual(hashLength, hash.Length);
-        }
-
-        [Test]
-        public void HashLengthComparision_WhenNotStringEmpty_AreEqual()
-        {
-            var hashLength = _hasher.GetHashLength();
-
-            var hash = _hasher.GenerateHash("Some arbitrary text.");
-
-            Assert.AreEqual(hashLength, hash.Length);
         }
 
         [Test]
