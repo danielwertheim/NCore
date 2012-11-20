@@ -3,7 +3,7 @@
   <metadata>
     <id>NCore.Source</id>    
     <title>NCore (source)</title>
-	<version>0.0.0.0</version>
+	<version>$version$</version>
 	<authors>Daniel Wertheim</authors>
 	<copyright>Daniel Wertheim</copyright>
 	<summary>Core lib with helpers, utils and extensions.</summary>
