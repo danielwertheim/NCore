@@ -30,8 +30,6 @@ sharedAssemblyInfoPath = "#{@env_solutionfolderpath}/SharedAssemblyInfo.cs"
 task :ci => [:installNuGets, :cleanIt, :versionIt, :buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 
 task :local => [:installNuGets, :cleanIt, :versionIt, :buildIt, :copyNCore, :testIt, :zipIt, :packIt]
-
-task :local_signed => [:installNuGets, :cleanIt, :versionIt, :signIt, :buildIt, :copyNCore, :testIt, :zipIt, :packIt]
 #--------------------------------------
 task :testIt => [:unittests]
 
@@ -52,12 +50,6 @@ assemblyinfo :versionIt do |asm|
 	asm.output_file = sharedAssemblyInfoPath
 	asm.version = @env_version
 	asm.file_version = @env_buildversion
-end
-
-assemblyinfo :signIt do |asm|
-	asm.input_file = sharedAssemblyInfoPath
-	asm.output_file = sharedAssemblyInfoPath
-	asm.custom_attributes :AssemblyKeyFileAttribute => "..\\..\\#{@env_projectnameNCore}.snk"
 end
 
 task :cleanIt do
