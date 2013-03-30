@@ -66,6 +66,7 @@
     <Compile Include="StringExtensionsTests.cs" />
     <Compile Include="SysDateTimeTests.cs" />
     <Compile Include="UnitTestBase.cs" />
+    <Compile Include="Validation\ObjectValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Projects\NCore\NCore.csproj">
