@@ -67,7 +67,7 @@
       <DependentUpon>ExceptionMessages.resx</DependentUpon>
     </Compile>
     <Compile Include="StringExtensions.cs" />
-    <Compile Include="SysDateTime.cs" />
+    <Compile Include="Now.cs" />
     <Compile Include="Try.cs" />
     <Compile Include="Validation\IObjectValidator.cs" />
     <Compile Include="Validation\IValidate.cs" />
