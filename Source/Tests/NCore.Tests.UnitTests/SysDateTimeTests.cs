@@ -11,10 +11,10 @@ namespace NCore.Tests.UnitTests
         {
             var fixedValue = new DateTime(2012, 01, 02, 12, 01, 42, 999);
 
-            SysDateTime.NowFn = () => fixedValue;
+            Now.ValueFn = () => fixedValue;
 
-            Assert.AreEqual(fixedValue, SysDateTime.Now);
-            Assert.AreEqual(fixedValue, SysDateTime.Now);
+            Assert.AreEqual(fixedValue, Now.Value);
+            Assert.AreEqual(fixedValue, Now.Value);
         }
 
         [Test]
@@ -22,10 +22,10 @@ namespace NCore.Tests.UnitTests
         {
             var fixedValue = new DateTime(2012, 01, 02, 12, 01, 42, 999);
 
-            SysDateTime.NowUtcFn = () => fixedValue;
+            Now.UtcFn = () => fixedValue;
 
-            Assert.AreEqual(fixedValue, SysDateTime.NowUtc);
-            Assert.AreEqual(fixedValue, SysDateTime.NowUtc);
+            Assert.AreEqual(fixedValue, Now.ValueUtc);
+            Assert.AreEqual(fixedValue, Now.ValueUtc);
         }
     }
 }

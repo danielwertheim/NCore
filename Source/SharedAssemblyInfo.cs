@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Reflection;
 
 #if DEBUG
 [assembly: AssemblyProduct("NCore (Debug)")]
@@ -13,5 +14,5 @@
 [assembly: AssemblyCopyright("Copyright © Daniel Wertheim")]
 [assembly: AssemblyTrademark("")]
 
-[assembly: AssemblyVersion("0.0.0.0")]
-[assembly: AssemblyFileVersion("0.0.0.0")]
+[assembly: AssemblyVersion("0.35.0")]
+[assembly: AssemblyFileVersion("0.35.0")]
